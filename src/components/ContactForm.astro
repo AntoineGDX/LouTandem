@@ -3,7 +3,6 @@
 // Envoi via Web3Forms (voir FORM dans src/data/site.ts) : fetch + redirection vers /merci ;
 // sans JS, envoi classique en POST (Web3Forms affiche alors sa propre page de confirmation).
 import Button from './Button.astro';
-import Marker from './Marker.astro';
 import { FORM, url } from '../data/site';
 
 const types = ['Boulangerie', 'Café', 'Restaurant', 'Primeur', 'Épicerie', 'Autre'];
@@ -118,7 +117,6 @@ const types = ['Boulangerie', 'Café', 'Restaurant', 'Primeur', 'Épicerie', 'Au
   <div class="actions">
     <Button type="submit">Envoyer ma demande</Button>
   </div>
-  {!FORM.accessKey && <p class="small">Envoi du formulaire : <Marker text="[À CONFIRMER : clé d'accès Web3Forms]" /></p>}
 
   <p class="form__status" role="status" aria-live="polite" data-form-status></p>
 </form>
@@ -164,7 +162,7 @@ const types = ['Boulangerie', 'Café', 'Restaurant', 'Primeur', 'Épicerie', 'Au
         return;
       }
       if (form.dataset.ready !== 'true') {
-        say("Le formulaire n'est pas encore branché : [À CONFIRMER : clé d'accès Web3Forms].");
+        say("L'envoi du formulaire n'est pas encore disponible. Écrivez-nous sur WhatsApp ou par email en attendant.");
         return;
       }
 

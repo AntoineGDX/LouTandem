@@ -1,0 +1,20 @@
+---
+// Logo « Lou Tandem » (lettrage, PNG transparent) : WebP + PNG de secours, 1x/2x/3x.
+import { Picture } from 'astro:assets';
+import logo from '../assets/images/logo-lou-tandem.png';
+interface Props { height?: number }
+const { height = 36 } = Astro.props;
+const width = Math.round((height * logo.width) / logo.height);
+---
+<Picture
+  src={logo}
+  formats={['webp']}
+  fallbackFormat="png"
+  widths={[180, 360, 540]}
+  sizes={`${width}px`}
+  width={width}
+  height={height}
+  alt="Lou Tandem"
+  loading="eager"
+  class="logo"
+/>

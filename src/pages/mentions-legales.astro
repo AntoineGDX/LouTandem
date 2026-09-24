@@ -1,5 +1,5 @@
 ---
-// SQUELETTE — à compléter avec les informations légales de Paulo.
+// SQUELETTE — à compléter avec les informations légales de Lou Tandem.
 import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
 import Marker from '../components/Marker.astro';
@@ -15,13 +15,12 @@ import { SITE, CONTACT, url } from '../data/site';
       <h2>Éditeur du site</h2>
       <ul>
         <li>Nom commercial : {SITE.name}</li>
-        <li>Responsable : Paulo <Marker text="[À CONFIRMER PAULO : nom complet]" /></li>
-        <li>Statut juridique : <Marker text="[À CONFIRMER PAULO : statut]" /></li>
-        <li>SIRET : <Marker text="[À CONFIRMER PAULO : SIRET]" /></li>
-        <li>Adresse : <Marker text="[À CONFIRMER PAULO : adresse de domiciliation]" /></li>
-        <li>Email : <Marker text={CONTACT.email} /></li>
-        <li>Téléphone : <Marker text={CONTACT.phoneLabel} /></li>
-        <li>Directeur de la publication : <Marker text="[À CONFIRMER PAULO]" /></li>
+        <li>Responsable : <Marker text="[À CONFIRMER : Paul, Louis ou structure commune, nom complet]" /></li>
+        <li>Statut juridique : <Marker text="[À CONFIRMER PAUL : statut]" /></li>
+        <li>SIRET : <Marker text="[À CONFIRMER PAUL : SIRET]" /></li>
+        <li>Adresse : <Marker text="[À CONFIRMER PAUL : adresse de domiciliation]" /></li>
+        <li>Email : <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+        <li>Directeur de la publication : <Marker text="[À CONFIRMER PAUL]" /></li>
       </ul>
 
       <h2>Hébergement</h2>
@@ -36,7 +35,7 @@ import { SITE, CONTACT, url } from '../data/site';
         Les textes, photos et éléments graphiques de ce site appartiennent à {SITE.name},
         sauf mention contraire. Toute reproduction sans autorisation est interdite.
       </p>
-      <p>Crédits photos : <Marker text="[À CONFIRMER PAULO : auteur des photos]" /></p>
+      <p>Crédits photos : <Marker text="[À CONFIRMER PAUL : auteur des photos]" /></p>
 
       <h2>Données personnelles</h2>
       <p>

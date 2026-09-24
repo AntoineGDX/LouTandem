@@ -1,0 +1,68 @@
+---
+// Section environnement : CO2 évité depuis le 1er juin 2026 (calcul dans src/lib/co2.ts).
+// Valeur calculée au build (visible sans JS), puis mise à jour en direct dans le navigateur :
+// le compteur avance pendant les heures de livraison.
+import { co2Stats } from '../lib/co2';
+
+const { km, kg } = co2Stats();
+const fmtKg = (v: number) => v.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const fmtKm = (v: number) => v.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+---
+<section class="section section--ocre env" aria-labelledby="env-title">
+  <div class="container env__inner">
+    <div class="section-head env__head">
+      <p class="eyebrow">Environnement</p>
+      <h2 id="env-title">Moins de CO2 dans les rues de Nice</h2>
+      <p class="lead">
+        Chaque livraison faite à vélo cargo, c'est un trajet en moins pour un véhicule à moteur.
+      </p>
+    </div>
+
+    <dl class="env__stats" data-co2>
+      <div class="card env__stat env__stat--main">
+        <dt>de CO2 évités</dt>
+        <dd><span class="env__num" data-co2-kg>{fmtKg(kg)}</span> <span class="env__unit">kg</span></dd>
+      </div>
+      <div class="card env__stat">
+        <dt>parcourus à vélo</dt>
+        <dd><span class="env__num" data-co2-km>{fmtKm(km)}</span> <span class="env__unit">km</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<script>
+  import { co2Stats } from '../lib/co2';
+
+  const root = document.querySelector<HTMLElement>('[data-co2]');
+  const kgEl = root?.querySelector<HTMLElement>('[data-co2-kg]');
+  const kmEl = root?.querySelector<HTMLElement>('[data-co2-km]');
+  if (kgEl && kmEl) {
+    const update = () => {
+      const { kg, km } = co2Stats();
+      kgEl.textContent = kg.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+      kmEl.textContent = km.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    };
+    update();
+    setInterval(update, 5_000);
+  }
+</script>
+
+<style>
+  .env__inner { display: grid; gap: var(--sp-5); }
+  .env__head { margin-bottom: 0; }
+  .env__stats { margin: 0; display: grid; gap: var(--sp-4); }
+  .env__stat { display: flex; flex-direction: column-reverse; gap: var(--sp-2); }
+  .env__stat dt { color: var(--encre-douce); font-size: var(--t-body); line-height: var(--l-body); }
+  .env__stat dd { margin: 0; color: var(--encre); }
+  .env__num {
+    font-family: var(--font-titre); font-weight: var(--w-display);
+    font-size: var(--t-display); line-height: var(--l-display); letter-spacing: var(--ls-display);
+    font-variant-numeric: tabular-nums;
+  }
+  .env__stat--main .env__num { color: var(--tomette); }
+  .env__unit { font-family: var(--font-titre); font-weight: var(--w-sub); font-size: var(--t-heading); }
+  @media (min-width: 768px) {
+    .env__stats { grid-template-columns: 1fr 1fr; gap: var(--sp-5); }
+  }
+</style>

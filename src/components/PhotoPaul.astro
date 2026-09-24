@@ -1,30 +1,30 @@
 ---
-// Photo de Paulo (page « Qui est Paulo ») : AVIF + WebP (JPEG en repli), largeurs 640 / 1080 / 1500.
+// Photo de Paul (page « Les deux pédalent ») : AVIF + WebP (JPEG en repli), largeurs 640 / 1080 / 1500.
 // Cadre ocre, arrondi 16px, point focal 50% 32%. Cadre carré pour garder le bas de l'image
 // hors cadre : impression partielle sur un sac, marque non validée [ACCORD CLIENT ?].
 import { Picture } from 'astro:assets';
-import paulo from '../assets/images/paulo-cargo.jpg';
+import paul from '../assets/images/paul-cargo.jpg';
 ---
-<div class="photo-paulo">
+<div class="photo-paul">
   <Picture
-    src={paulo}
+    src={paul}
     formats={['avif', 'webp']}
     fallbackFormat="jpg"
     widths={[640, 1080, 1500]}
     sizes="(min-width: 900px) 40vw, 100vw"
-    alt="Paulo sur son vélo cargo chargé de sacs de livraison, dans une rue de Nice"
+    alt="Paul sur son vélo cargo chargé de sacs de livraison, dans une rue de Nice"
     quality={55}
   />
 </div>
 
 <style>
-  .photo-paulo {
+  .photo-paul {
     background: var(--ocre);
     border-radius: var(--r-photo);
     overflow: hidden;
     aspect-ratio: 1 / 1;
   }
-  .photo-paulo :global(img) {
+  .photo-paul :global(img) {
     width: 100%;
     height: 100%;
     object-fit: cover;

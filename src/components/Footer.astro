@@ -1,14 +1,13 @@
 ---
-// Pied de page : renvoi vers « Travailler avec Lou Tandem », navigation, pages légales.
-import Emblem from './Emblem.astro';
-import Marker from './Marker.astro';
+// Pied de page : renvoi vers « Travailler avec nous », navigation, pages légales.
+import Logo from './Logo.astro';
 import { SITE, NAV, CTA, CONTACT, url } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
   <div class="container site-footer__grid">
     <div class="site-footer__brand">
-      <p class="brand-line"><Emblem /><span>{SITE.name}</span></p>
+      <p class="brand-line"><Logo height={32} /></p>
       <p class="small">{SITE.tagline}.</p>
       <p class="small">{SITE.zone}, {SITE.days.toLowerCase()}.</p>
     </div>
@@ -22,12 +21,11 @@ const year = new Date().getFullYear();
       </ul>
     </nav>
 
-    <div>
+    <div class="site-footer__contact">
       <h2 class="eyebrow">Contact</h2>
       <ul class="small">
-        <li>WhatsApp : <Marker text={CONTACT.whatsappLabel} /></li>
-        <li>Téléphone : <Marker text={CONTACT.phoneLabel} /></li>
-        <li>Email : <Marker text={CONTACT.email} /></li>
+        <li>WhatsApp : <a href={CONTACT.whatsappUrl}>{CONTACT.whatsappLabel}</a></li>
+        <li>Email : <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
       </ul>
     </div>
   </div>
@@ -47,15 +45,11 @@ const year = new Date().getFullYear();
   .site-footer { background: var(--creme); border-top: 1px solid var(--trait); padding-top: var(--sp-7); }
   .site-footer__grid { display: grid; gap: var(--sp-6); }
   .site-footer__brand { display: grid; gap: var(--sp-2); color: var(--encre-douce); }
-  .brand-line {
-    display: inline-flex; align-items: center; gap: var(--sp-2);
-    font-family: var(--font-titre); font-weight: 800; font-size: 24px; line-height: 1; letter-spacing: -0.5px;
-    color: var(--encre);
-  }
+  .brand-line :global(img) { height: 32px; width: auto; }
   .site-footer h2 { font-family: var(--font-texte); margin-bottom: var(--sp-2); }
   .site-footer ul { list-style: none; padding: 0; margin: 0; }
-  .site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
-  .site-footer__grid .small li { padding-block: var(--sp-2); }
+  .site-footer a { display: inline-flex; align-items: center; min-height: 44px; overflow-wrap: anywhere; }
+  .site-footer__contact li { display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.3em; }
   .site-footer__legal {
     display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--sp-3);
     margin-top: var(--sp-6); padding-block: var(--sp-4);
@@ -64,6 +58,11 @@ const year = new Date().getFullYear();
   }
   .site-footer__legal ul { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
   @media (min-width: 768px) {
-    .site-footer__grid { grid-template-columns: 2fr 1fr 1.4fr; }
+    .site-footer__grid { grid-template-columns: 1fr 1fr; }
+    .site-footer__contact { grid-column: 1 / -1; }
+  }
+  @media (min-width: 1024px) {
+    .site-footer__grid { grid-template-columns: 2fr 1fr 1.6fr; }
+    .site-footer__contact { grid-column: auto; }
   }
 </style>

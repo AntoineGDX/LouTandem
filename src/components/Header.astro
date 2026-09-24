@@ -1,6 +1,6 @@
 ---
-// En-tête : emblème + nom, liens, bouton principal. Menu repliable sur mobile.
-import Emblem from './Emblem.astro';
+// En-tête : logo, liens, bouton principal. Menu repliable sur mobile.
+import Logo from './Logo.astro';
 import Button from './Button.astro';
 import { NAV, CTA, SITE, url } from '../data/site';
 
@@ -11,8 +11,7 @@ const isCurrent = (href: string) => path === clean(href);
 <header class="site-header">
   <div class="container site-header__bar">
     <a href={url('/')} class="brand" aria-label={`${SITE.name}, accueil`} aria-current={isCurrent(url('/')) ? 'page' : undefined}>
-      <Emblem />
-      <span class="brand__name">{SITE.name}</span>
+      <Logo height={36} />
     </a>
 
     <button
@@ -78,10 +77,7 @@ const isCurrent = (href: string) => path === clean(href);
     min-height: 44px;
     color: var(--encre); text-decoration: none;
   }
-  .brand__name {
-    font-family: var(--font-titre); font-weight: 800;
-    font-size: 28px; line-height: 1; letter-spacing: -0.5px;
-  }
+  .brand :global(img) { height: 36px; width: auto; }
 
   .menu-toggle {
     display: inline-flex; align-items: center; gap: var(--sp-2);

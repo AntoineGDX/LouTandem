@@ -14,12 +14,12 @@ import { SITE, CONTACT } from '../data/site';
     <div class="container prose">
       <h2>Responsable du traitement</h2>
       <p>
-        {SITE.name}, Paulo <Marker text="[À CONFIRMER PAULO : nom complet]" />.
-        Contact : <Marker text={CONTACT.email} />
+        {SITE.name}, <Marker text="[À CONFIRMER : responsable du traitement (Paul, Louis ou structure commune), nom complet]" />.
+        Contact : <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
       </p>
 
       <h2>Données collectées</h2>
-      <p>Le formulaire « Travailler avec Lou Tandem » collecte :</p>
+      <p>Le formulaire « Travailler avec nous » collecte :</p>
       <ul>
         <li>le nom et le type de votre commerce, son adresse ou son quartier ;</li>
         <li>le nom de la personne à contacter, son téléphone et son email ;</li>
@@ -36,18 +36,18 @@ import { SITE, CONTACT } from '../data/site';
 
       <h2>Qui y a accès</h2>
       <p>
-        Paulo, et le service qui transmet le formulaire :
+        Paul et Louis, et le service qui transmet le formulaire :
         Web3Forms, qui reçoit le formulaire et le transfère par email.
         <Marker text="[À CONFIRMER : pays d'hébergement des données Web3Forms et garanties de transfert]" />
       </p>
 
       <h2>Durée de conservation</h2>
-      <p><Marker text="[À CONFIRMER PAULO : durée de conservation]" /></p>
+      <p><Marker text="[À CONFIRMER PAUL : durée de conservation]" /></p>
 
       <h2>Vos droits</h2>
       <p>
         Vous pouvez demander l'accès à vos données, leur rectification ou leur suppression,
-        et vous opposer à leur traitement, en écrivant à <Marker text={CONTACT.email} />.
+        et vous opposer à leur traitement, en écrivant à <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
         Vous pouvez aussi adresser une réclamation à la CNIL (<a href="https://www.cnil.fr">cnil.fr</a>).
       </p>
 

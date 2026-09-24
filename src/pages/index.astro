@@ -3,8 +3,8 @@ import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
 import HeroIllustration from '../components/HeroIllustration.astro';
 import StepCard from '../components/StepCard.astro';
-import Marker from '../components/Marker.astro';
 import FinalCta from '../components/FinalCta.astro';
+import Co2Counter from '../components/Co2Counter.astro';
 import { SITE, CTA, CONTACT } from '../data/site';
 
 const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épiceries'];
@@ -24,7 +24,6 @@ const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épicer
           <Button href={CTA.href}>{CTA.label}</Button>
           <Button href={CONTACT.whatsappUrl} variant="secondary">Écrire sur WhatsApp</Button>
         </div>
-        <p class="small muted">WhatsApp : <Marker text={CONTACT.whatsappLabel} /></p>
       </div>
       <HeroIllustration />
     </div>
@@ -39,7 +38,7 @@ const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épicer
       </div>
       <ol class="grid grid--3 steps">
         <StepCard number={1} title="Vous envoyez vos livraisons">
-          <p>La veille, vous envoyez à Paulo sur WhatsApp les livraisons du lendemain.</p>
+          <p>La veille, vous nous envoyez sur WhatsApp les livraisons du lendemain.</p>
         </StepCard>
         <StepCard number={2} title="Nous passons chez vous">
           <p>Nous récupérons la marchandise directement dans votre commerce.</p>
@@ -65,33 +64,35 @@ const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épicer
     </div>
   </section>
 
-  <!-- 4. Pourquoi le vélo cargo — TEXTE PROVISOIRE -->
-  <section class="section" aria-labelledby="velo-title" data-provisoire>
+  <!-- 4. Pourquoi le vélo cargo -->
+  <section class="section" aria-labelledby="velo-title">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Pourquoi le vélo cargo</p>
         <h2 id="velo-title">Le bon véhicule pour le centre de Nice</h2>
-        <p><Marker text="[À CONFIRMER PAULO : arguments qu'il veut mettre en avant]" /></p>
       </div>
       <ul class="grid grid--3 args" role="list">
         <li class="card">
           <h3>Il passe partout</h3>
-          <p>Les rues étroites du centre ne posent pas de problème à un vélo.</p>
+          <p>Rues étroites, sens uniques, circulation chargée : de Riquier au Carré d'Or, le vélo cargo avance là où une camionnette reste coincée. Vos livraisons du matin arrivent à l'heure.</p>
         </li>
         <li class="card">
-          <h3>Il s'arrête au plus près</h3>
-          <p>Pas besoin de chercher une place : la livraison se fait au pied de la porte.</p>
+          <h3>Il s'arrête devant la porte</h3>
+          <p>Pas de place à chercher, pas de double file : nous livrons au pied de chez votre client, vite et sans gêner personne.</p>
         </li>
         <li class="card">
-          <h3>Il livre en douceur</h3>
-          <p>Une livraison silencieuse, sans gaz d'échappement devant chez vos clients.</p>
+          <h3>Il respecte le quartier</h3>
+          <p>Ni bruit de moteur ni gaz d'échappement devant vos clients. Et chaque tournée à vélo, c'est du CO2 en moins pour Nice.</p>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- 5. Zone et jours -->
-  <section class="section section--ocre" aria-labelledby="zone-title">
+  <!-- 5. Environnement : compteur de CO2 évité -->
+  <Co2Counter />
+
+  <!-- 6. Zone et jours -->
+  <section class="section" aria-labelledby="zone-title">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Zone et jours</p>
@@ -100,19 +101,18 @@ const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épicer
       <div class="grid grid--2 infos">
         <div class="card">
           <h3>Zone</h3>
-          <p>{SITE.zone}.</p>
-          <p>Des extensions proches sont possibles, au cas par cas. <Marker text={SITE.zoneExtension} /></p>
+          <p>{SITE.zone} : {SITE.quartiers}.</p>
+          <p>D'autres quartiers proches sont possibles, au cas par cas.</p>
         </div>
         <div class="card">
           <h3>Jours</h3>
           <p>{SITE.days}.</p>
-          <p>Horaires : <Marker text={SITE.hours} /></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Bloc final -->
+  <!-- 7. Bloc final -->
   <FinalCta />
 </Base>
 
@@ -130,11 +130,10 @@ const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épicer
 
   .commerces {
     list-style: none; padding: 0; margin: 0;
-    display: grid; gap: var(--sp-3);
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    display: flex; flex-wrap: wrap; gap: var(--sp-3);
   }
   .commerce {
-    padding: var(--sp-4);
+    padding: var(--sp-4) var(--sp-5);
     font-family: var(--font-titre); font-weight: var(--w-sub);
     font-size: var(--t-sub); line-height: var(--l-sub);
   }

@@ -2,47 +2,47 @@
 import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
 import PhotoFrame from '../components/PhotoFrame.astro';
-import PhotoPaulo from '../components/PhotoPaulo.astro';
+import PhotoPaul from '../components/PhotoPaul.astro';
 import Marker from '../components/Marker.astro';
 import FinalCta from '../components/FinalCta.astro';
 ---
 <Base
-  title="Qui est Paulo"
-  description="Derrière Lou Tandem, il y a Paulo, livreur indépendant à vélo cargo à Nice, et son frère. Ils livrent les clients des commerces de proximité, du mardi au samedi."
+  title="Les deux pédalent"
+  description="Derrière Lou Tandem, il y a deux frères, Paul et Louis, livreurs à vélo cargo à Nice. Ils livrent les clients des commerces de proximité, du mardi au samedi."
 >
-  <PageIntro eyebrow="Qui est Paulo" title="Paulo, livreur à vélo cargo à Nice">
-    <p>Lou Tandem, c'est l'activité de Paulo, livreur indépendant à vélo cargo à Nice. Il livre aujourd'hui avec son frère, et c'est lui votre interlocuteur.</p>
+  <PageIntro eyebrow="Les deux pédalent" title="Paul et Louis, deux frères à vélo cargo">
+    <p>Lou Tandem, ce sont deux frères, Paul et Louis, livreurs à vélo cargo à Nice.</p>
   </PageIntro>
 
-  <!-- 1. Présentation de Paulo — contenu À CONFIRMER -->
-  <section class="section" aria-labelledby="paulo-title" data-provisoire>
-    <div class="container two-col">
-      <div class="prose">
-        <p class="eyebrow">Son parcours</p>
-        <h2 id="paulo-title">Son histoire</h2>
-        <p><Marker text="[À CONFIRMER PAULO : présentation, parcours, ancrage niçois]" /></p>
+  <!-- 1. Présentation des deux frères — contenu À CONFIRMER -->
+  <section class="section" aria-labelledby="freres-title" data-provisoire>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Les livreurs</p>
+        <h2 id="freres-title">Frères de sang, frères de selle</h2>
       </div>
-      <PhotoPaulo />
+      <div class="grid grid--2">
+        <article class="frere" aria-labelledby="paul-title">
+          <PhotoPaul />
+          <h3 id="paul-title">Paul</h3>
+          <p><Marker text="[À CONFIRMER PAUL : présentation, parcours, ancrage niçois]" /></p>
+        </article>
+        <article class="frere" aria-labelledby="louis-title">
+          <PhotoFrame label="Louis" ratio="1 / 1" />
+          <h3 id="louis-title">Louis</h3>
+          <p><Marker text="[À CONFIRMER LOUIS : présentation, parcours, ancrage niçois]" /></p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- 2. Le nom Lou Tandem -->
-  <section class="section section--ocre" aria-labelledby="nom-title">
-    <div class="container prose">
-      <p class="eyebrow">Le nom</p>
-      <h2 id="nom-title">Pourquoi « Lou Tandem » ?</h2>
-      <p>« Lou », c'est un mot niçois. Un tandem, c'est un vélo à deux.</p>
-      <p>Et Lou Tandem, c'est justement deux livreurs : Paulo et son frère.</p>
-    </div>
-  </section>
-
-  <!-- 3. Photos — à fournir -->
-  <section class="section" aria-labelledby="photos-title">
+  <!-- 2. Photos — à fournir -->
+  <section class="section section--filet" aria-labelledby="photos-title">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">En images</p>
         <h2 id="photos-title">Le vélo et les tournées</h2>
-        <p><Marker text="[À CONFIRMER PAULO : photos supplémentaires à fournir]" /></p>
+        <p><Marker text="[À CONFIRMER PAUL : photos supplémentaires à fournir]" /></p>
       </div>
       <div class="grid grid--2">
         <PhotoFrame label="le vélo cargo seul" ratio="4 / 3" />
@@ -51,13 +51,12 @@ import FinalCta from '../components/FinalCta.astro';
     </div>
   </section>
 
-  <!-- 4. Bloc final -->
+  <!-- 3. Bloc final -->
   <FinalCta />
 </Base>
 
 <style>
-  .two-col { display: grid; gap: var(--sp-6); align-items: start; }
-  @media (min-width: 900px) {
-    .two-col { grid-template-columns: 3fr 2fr; gap: var(--sp-7); }
-  }
+  .frere { display: grid; gap: var(--sp-3); align-content: start; }
+  .frere h3 { margin-top: var(--sp-2); }
+  .section--filet { border-top: 1px solid var(--trait); }
 </style>

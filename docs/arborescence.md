@@ -3,7 +3,7 @@ Dernière mise à jour : 24/09/2026
 # Arborescence — site Lou Tandem
 
 Site vitrine de 4 pages, plus les pages légales.
-Action principale sur tout le site : **« Travailler avec Lou Tandem »**, un premier contact pour un nouveau commerce.
+Action principale sur tout le site : **« Travailler avec nous »**, un premier contact pour un nouveau commerce.
 Le header et le bas de chaque page renvoient vers la page 4.
 
 Les commandes quotidiennes des commerces déjà clients restent sur WhatsApp. Le site n'a pas de module de réservation.
@@ -11,42 +11,43 @@ Les commandes quotidiennes des commerces déjà clients restent sur WhatsApp. Le
 ---
 
 ## 1. Accueil (`/`)
-1. **Hero** : Lou Tandem, livraison à vélo cargo pour les commerces de Nice. Illustration `illustration-cargo.png`. Bouton « Travailler avec Lou Tandem » et, en second, « Écrire sur WhatsApp ». [coordonnées À CONFIRMER]
+1. **Hero** : Lou Tandem, livraison à vélo cargo pour les commerces de Nice. Illustration `illustration-cargo.png`. Bouton « Travailler avec nous » et, en second, « Écrire sur WhatsApp » (+33 6 40 32 81 75).
 2. **Le principe en 3 étapes** :
    - Vous envoyez vos livraisons du lendemain sur WhatsApp.
-   - Paulo récupère la marchandise chez vous.
-   - Il livre vos clients.
+   - Nous passons récupérer la marchandise chez vous.
+   - Nous livrons vos clients.
 3. **Pour qui** : boulangeries, cafés, restaurants, primeurs, épiceries.
-4. **Pourquoi le vélo cargo** : arguments qualitatifs, sans chiffres. [À CONFIRMER PAULO : arguments qu'il veut mettre en avant]
-5. **Zone et jours** : Nice centre, du mardi au samedi. [horaires et limites de zone À CONFIRMER]
-6. **Bloc final** : appel à prendre contact.
+4. **Pourquoi le vélo cargo** : arguments qualitatifs, sans chiffres : il passe partout (livraisons du matin à l'heure), il s'arrête devant la porte, il respecte le quartier (ni bruit ni gaz d'échappement).
+5. **Environnement** : compteur de CO2 évité depuis le 1er juin 2026, qui avance au fil des tournées. Calcul : 32 km par jour de livraison (mardi → samedi) faits à vélo au lieu d'une voiture thermique (0,218 kg CO2e/km, ADEME).
+6. **Zone et jours** : Nice centre (Riquier, Port, Carabacel, Carré d'Or, Jean-Médecin), du mardi au samedi. Pas d'horaires affichés.
+7. **Bloc final** : appel à prendre contact.
 
 ## 2. Le service (`/livraison`)
 1. **Ce que fait Lou Tandem** : récupération chez le commerce, livraison chez ses clients (surtout des pros, parfois des particuliers).
-2. **Comment on travaille ensemble** : organisation par WhatsApp, commandes la veille ou plus tôt, livraisons ponctuelles ou régulières. [À CONFIRMER PAULO : accepte-t-il une livraison ponctuelle ou le jour même ?]
-3. **Ce qu'on peut transporter** : vélo cargo avec un espace de chargement à l'avant, capacité évaluée selon le volume. On en parle avant de démarrer. [À CONFIRMER PAULO : produits frais, fragiles, contraintes]
+2. **Comment on travaille ensemble** : organisation par WhatsApp, commandes la veille ou plus tôt, livraisons régulières. Ponctuel et jour même : pas encore proposés, à venir.
+3. **Ce qu'on peut transporter** : vélo cargo avec un espace de chargement à l'avant, capacité évaluée selon le volume. On en parle avant de démarrer. [À CONFIRMER PAUL : produits frais, fragiles, contraintes]
 4. **Zone et jours** : Nice centre et alentours proches au cas par cas, du mardi au samedi.
 5. **Tarifs** : selon vos besoins, sur devis. Pas de grille.
-6. **FAQ** : [questions À CONFIRMER PAULO : délai pour démarrer, annulation, facturation, que se passe-t-il en cas de pluie]
+6. **FAQ** : [questions À CONFIRMER PAUL : délai pour démarrer, annulation, que se passe-t-il en cas de pluie]
+   - Facturation (confirmée) : à la course, une facture par mois qui regroupe les livraisons du mois.
 7. **Bloc final** : appel à prendre contact.
 
-## 3. Qui est Paulo (`/a-propos`)
-1. **Présentation de Paulo**, son parcours, son ancrage niçois. [contenu À CONFIRMER PAULO]
-2. **Le nom Lou Tandem** : son origine. [À CONFIRMER PAULO]
-3. **Photos** de Paulo et du vélo : `paulo-cargo.jpg`, plus d'autres photos à fournir.
-4. **Bloc final** : appel à prendre contact.
+## 3. Les deux pédalent (`/a-propos`)
+1. **Présentation des deux frères**, Paul et Louis : parcours, ancrage niçois, une photo chacun. [contenu À CONFIRMER PAUL et LOUIS]
+2. **Photos** : `paul-cargo.jpg` pour Paul ; photo de Louis et autres photos à fournir.
+3. **Bloc final** : appel à prendre contact.
 
-## 4. Travailler avec Lou Tandem (`/contact`)
+## 4. Travailler avec nous (`/contact`)
 Cette page regroupe la demande de service et le contact.
 1. **Introduction** : « Vous êtes un commerce à Nice et vous voulez faire livrer vos clients ? »
-2. **Contact direct** : bouton WhatsApp et téléphone. [coordonnées À CONFIRMER]
+2. **Contact direct** : bouton WhatsApp (+33 6 40 32 81 75) et email (paul.company.b@gmail.com). Pas d'appel téléphonique proposé.
 3. **Formulaire de premier contact** :
    - nom du commerce, type de commerce, nom du contact
    - téléphone, email
    - adresse du commerce (quartier)
    - livraisons envisagées : fréquence (ponctuel ou régulier), volume approximatif, zones de livraison
    - message libre
-4. **Après l'envoi** : Paulo vous recontacte. [délai À CONFIRMER PAULO]
+4. **Après l'envoi** : nous vous recontactons (pas de délai affiché).
 
 ## Pages légales (pied de page)
 - Mentions légales [statut, SIRET et hébergeur À CONFIRMER]
@@ -59,12 +60,7 @@ Cette page regroupe la demande de service et le contact.
 ---
 
 ## Points restants [À CONFIRMER]
-- Coordonnées : WhatsApp, téléphone, email
-- Horaires et limites de zone
-- Livraisons ponctuelles ou le jour même : possibles ou non ?
 - Types de marchandises acceptées ou exclues
-- Arguments « pourquoi le vélo cargo » à retenir
 - Questions de la FAQ
-- Présentation de Paulo, origine du nom, photos supplémentaires
-- Délai de réponse après l'envoi du formulaire
+- Présentation de Paul et Louis, photo de Louis, photos supplémentaires
 - Informations pour les mentions légales

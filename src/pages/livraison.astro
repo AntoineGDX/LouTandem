@@ -6,13 +6,13 @@ import FinalCta from '../components/FinalCta.astro';
 import { SITE } from '../data/site';
 
 const faq = [
-  { q: 'Combien de temps faut-il pour démarrer ?', a: '[À CONFIRMER PAULO : délai pour démarrer]' },
-  { q: 'Et si je dois annuler une livraison ?', a: '[À CONFIRMER PAULO : annulation]' },
+  { q: 'Combien de temps faut-il pour démarrer ?', a: '[À CONFIRMER PAUL : délai pour démarrer]' },
+  { q: 'Et si je dois annuler une livraison ?', a: '[À CONFIRMER PAUL : annulation]' },
   {
     q: 'Comment se passe la facturation ?',
     a: 'La facturation se fait à la course. Chaque mois, vous recevez une seule facture qui regroupe toutes les livraisons du mois.',
   },
-  { q: "Que se passe-t-il en cas de pluie ?", a: '[À CONFIRMER PAULO : livraisons par temps de pluie]' },
+  { q: "Que se passe-t-il en cas de pluie ?", a: '[À CONFIRMER PAUL : livraisons par temps de pluie]' },
 ];
 ---
 <Base
@@ -31,7 +31,6 @@ const faq = [
       <p>
         Nous passons récupérer la marchandise dans votre commerce, puis nous la livrons chez vos clients.
         Ce sont surtout des professionnels, parfois des particuliers.
-        <Marker text="[À CONFIRMER PAULO : ce sont les clients particuliers d'un commerce, ou des particuliers qui commandent directement à Lou Tandem ?]" />
       </p>
     </div>
   </section>
@@ -42,8 +41,8 @@ const faq = [
       <p class="eyebrow">Comment on travaille ensemble</p>
       <h2 id="comment-title">Tout s'organise sur WhatsApp</h2>
       <ul>
-        <li>Vous envoyez à Paulo le nombre de livraisons à faire, en général la veille, parfois plus tôt.</li>
-        <li>Les livraisons peuvent être ponctuelles ou régulières. <Marker text="[À CONFIRMER PAULO : accepte-t-il une livraison ponctuelle ou le jour même ?]" /></li>
+        <li>Vous nous envoyez le nombre de livraisons à faire, en général la veille, parfois plus tôt.</li>
+        <li>Pour l'instant, nous travaillons avec des commerces réguliers. Les livraisons ponctuelles ou le jour même ne sont pas encore proposées, mais nous aimerions les ajouter.</li>
         <li>Pas de réservation ni de paiement en ligne : on en parle directement.</li>
       </ul>
     </div>
@@ -58,7 +57,7 @@ const faq = [
         Les livraisons se font en vélo cargo classique, avec un espace de chargement à l'avant.
         La capacité se raisonne en volume : on regarde ensemble ce que vous avez à livrer avant de démarrer.
       </p>
-      <p><Marker text="[À CONFIRMER PAULO : produits frais, fragiles, contraintes]" /></p>
+      <p><Marker text="[À CONFIRMER PAUL : produits frais, fragiles, contraintes]" /></p>
     </div>
   </section>
 
@@ -72,13 +71,12 @@ const faq = [
       <div class="grid grid--2">
         <div class="card stack">
           <h3>Zone</h3>
-          <p>{SITE.zone}, et les alentours proches au cas par cas.</p>
-          <p><Marker text={SITE.zoneExtension} /></p>
+          <p>{SITE.zone} : {SITE.quartiers}.</p>
+          <p>D'autres quartiers proches sont possibles, au cas par cas.</p>
         </div>
         <div class="card stack">
           <h3>Jours</h3>
           <p>{SITE.days}.</p>
-          <p>Horaires : <Marker text={SITE.hours} /></p>
         </div>
       </div>
     </div>
@@ -99,7 +97,7 @@ const faq = [
       <div class="section-head">
         <p class="eyebrow">Questions fréquentes</p>
         <h2 id="faq-title">Vos questions</h2>
-        <p><Marker text="[À CONFIRMER PAULO : questions de la FAQ]" /></p>
+        <p><Marker text="[À CONFIRMER PAUL : questions de la FAQ]" /></p>
       </div>
       <div class="faq">
         {faq.map((item) => (
