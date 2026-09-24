@@ -18,8 +18,6 @@ export const SITE = {
   zone: 'Nice centre',
   quartiers: 'Riquier, le Port, Carabacel, le Carré d’Or et Jean-Médecin',
   days: 'Du mardi au samedi',
-  pricing: 'Selon vos besoins, sur devis.',
-  pricingMarker: '[À CONFIRMER PAUL : formulation]',
 } as const;
 
 export const CONTACT = {

@@ -1,18 +1,26 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
-import Marker from '../components/Marker.astro';
 import FinalCta from '../components/FinalCta.astro';
 import { SITE } from '../data/site';
 
 const faq = [
-  { q: 'Combien de temps faut-il pour démarrer ?', a: '[À CONFIRMER PAUL : délai pour démarrer]' },
-  { q: 'Et si je dois annuler une livraison ?', a: '[À CONFIRMER PAUL : annulation]' },
+  {
+    q: 'Combien de temps faut-il pour démarrer ?',
+    a: "Aucun délai : dès que nous sommes d'accord, nous pouvons commencer.",
+  },
+  {
+    q: 'Et si je dois annuler une livraison ?',
+    a: 'Prévenez-nous par un appel ou un message sur WhatsApp.',
+  },
   {
     q: 'Comment se passe la facturation ?',
     a: 'La facturation se fait à la course. Chaque mois, vous recevez une seule facture qui regroupe toutes les livraisons du mois.',
   },
-  { q: "Que se passe-t-il en cas de pluie ?", a: '[À CONFIRMER PAUL : livraisons par temps de pluie]' },
+  {
+    q: 'Que se passe-t-il en cas de pluie ?',
+    a: 'Nous livrons aussi par temps de pluie : le vélo cargo a une bâche qui protège la marchandise.',
+  },
 ];
 ---
 <Base
@@ -25,39 +33,48 @@ const faq = [
 
   <!-- 1. Ce que fait Lou Tandem -->
   <section class="section" aria-labelledby="quoi-title">
-    <div class="container prose">
-      <p class="eyebrow">Ce que fait Lou Tandem</p>
-      <h2 id="quoi-title">De votre commerce à vos clients</h2>
-      <p>
-        Nous passons récupérer la marchandise dans votre commerce, puis nous la livrons chez vos clients.
-        Ce sont surtout des professionnels, parfois des particuliers.
-      </p>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Ce que fait Lou Tandem</p>
+        <h2 id="quoi-title">De votre commerce à vos clients</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Nous passons récupérer la marchandise dans votre commerce, puis nous la livrons chez vos clients.
+          Ce sont surtout des professionnels, parfois des particuliers.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- 2. Comment on travaille ensemble -->
   <section class="section section--ocre" aria-labelledby="comment-title">
-    <div class="container prose">
-      <p class="eyebrow">Comment on travaille ensemble</p>
-      <h2 id="comment-title">Tout s'organise sur WhatsApp</h2>
-      <ul>
-        <li>Vous nous envoyez le nombre de livraisons à faire, en général la veille, parfois plus tôt.</li>
-        <li>Pour l'instant, nous travaillons avec des commerces réguliers. Les livraisons ponctuelles ou le jour même ne sont pas encore proposées, mais nous aimerions les ajouter.</li>
-        <li>Pas de réservation ni de paiement en ligne : on en parle directement.</li>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Comment on travaille ensemble</p>
+        <h2 id="comment-title">Tout s'organise sur WhatsApp</h2>
+      </div>
+      <ul class="grid grid--3 points" role="list">
+        <li class="card">Vous nous envoyez le nombre de livraisons à faire, en général la veille, parfois plus tôt.</li>
+        <li class="card">Pour l'instant, nous travaillons avec des commerces réguliers. Les livraisons ponctuelles ou le jour même ne sont pas encore proposées, mais nous aimerions les ajouter.</li>
+        <li class="card">Pas de réservation ni de paiement en ligne : on en parle directement.</li>
       </ul>
     </div>
   </section>
 
   <!-- 3. Ce qu'on peut transporter -->
   <section class="section" aria-labelledby="transport-title">
-    <div class="container prose">
-      <p class="eyebrow">Ce qu'on peut transporter</p>
-      <h2 id="transport-title">Un vélo cargo, un espace de chargement à l'avant</h2>
-      <p>
-        Les livraisons se font en vélo cargo classique, avec un espace de chargement à l'avant.
-        La capacité se raisonne en volume : on regarde ensemble ce que vous avez à livrer avant de démarrer.
-      </p>
-      <p><Marker text="[À CONFIRMER PAUL : produits frais, fragiles, contraintes]" /></p>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Ce qu'on peut transporter</p>
+        <h2 id="transport-title">Un vélo cargo, un espace de chargement à l'avant</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Les livraisons se font en vélo cargo classique, avec un espace de chargement à l'avant.
+          La capacité se raisonne en volume : on regarde ensemble ce que vous avez à livrer avant de démarrer.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -84,28 +101,29 @@ const faq = [
 
   <!-- 5. Tarifs -->
   <section class="section" aria-labelledby="tarifs-title">
-    <div class="container prose">
-      <p class="eyebrow">Tarifs</p>
-      <h2 id="tarifs-title">Sur devis, selon vos besoins</h2>
-      <p>Pas de grille de prix : le tarif dépend de vos livraisons. {SITE.pricing} <Marker text={SITE.pricingMarker} /></p>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Tarifs</p>
+        <h2 id="tarifs-title">Sur devis, selon vos besoins</h2>
+      </div>
+      <div class="prose">
+        <p>Parlez-nous de vos livraisons : nous vous proposons un devis adapté.</p>
+      </div>
     </div>
   </section>
 
-  <!-- 6. FAQ — questions et réponses À CONFIRMER -->
-  <section class="section section--ocre" aria-labelledby="faq-title" data-provisoire>
+  <!-- 6. FAQ -->
+  <section class="section section--ocre" aria-labelledby="faq-title">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Questions fréquentes</p>
         <h2 id="faq-title">Vos questions</h2>
-        <p><Marker text="[À CONFIRMER PAUL : questions de la FAQ]" /></p>
       </div>
       <div class="faq">
         {faq.map((item) => (
           <details class="faq__item">
             <summary><span>{item.q}</span></summary>
-            <div class="faq__answer">
-              {item.a.startsWith('[') ? <Marker text={item.a} /> : <p>{item.a}</p>}
-            </div>
+            <div class="faq__answer"><p>{item.a}</p></div>
           </details>
         ))}
       </div>
@@ -118,6 +136,7 @@ const faq = [
 
 <style>
   .stack { display: grid; gap: var(--sp-2); align-content: start; }
+  .points { list-style: none; padding: 0; margin: 0; }
 
   .faq { display: grid; gap: var(--sp-3); max-width: 46rem; }
   .faq__item {

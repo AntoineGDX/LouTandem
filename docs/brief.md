@@ -37,7 +37,7 @@ La capacité se raisonne en volume et s'évalue au cas par cas. Aucun poids ou v
 - Horaires : le matin, en général de 7 h 30 à 14 h au plus tard, selon le nombre de livraisons de la journée. Non affichés sur le site (servent seulement au compteur de CO2).
 
 ## Tarifs et facturation
-- Aucun tarif affiché sur le site pour le moment. Formulation : « sur devis » ou « selon vos besoins ». [À CONFIRMER PAUL : formulation]
+- Aucun tarif affiché sur le site. Formulation : « Sur devis, selon vos besoins ».
 - Facturation à la course (chaque livraison), regroupée sur une facture mensuelle.
 
 ## Environnement
@@ -66,5 +66,4 @@ Direct, local, chaleureux, sans jargon marketing. Rédaction en français.
 
 ## Points restants [À CONFIRMER]
 - Le site s'adresse-t-il aussi à des particuliers en tant que clients ?
-- Formulation autour des tarifs
 - Réseaux sociaux

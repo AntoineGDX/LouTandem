@@ -25,11 +25,14 @@ Les commandes quotidiennes des commerces déjà clients restent sur WhatsApp. Le
 ## 2. Le service (`/livraison`)
 1. **Ce que fait Lou Tandem** : récupération chez le commerce, livraison chez ses clients (surtout des pros, parfois des particuliers).
 2. **Comment on travaille ensemble** : organisation par WhatsApp, commandes la veille ou plus tôt, livraisons régulières. Ponctuel et jour même : pas encore proposés, à venir.
-3. **Ce qu'on peut transporter** : vélo cargo avec un espace de chargement à l'avant, capacité évaluée selon le volume. On en parle avant de démarrer. [À CONFIRMER PAUL : produits frais, fragiles, contraintes]
+3. **Ce qu'on peut transporter** : vélo cargo avec un espace de chargement à l'avant, capacité évaluée selon le volume. On en parle avant de démarrer.
 4. **Zone et jours** : Nice centre et alentours proches au cas par cas, du mardi au samedi.
-5. **Tarifs** : selon vos besoins, sur devis. Pas de grille.
-6. **FAQ** : [questions À CONFIRMER PAUL : délai pour démarrer, annulation, que se passe-t-il en cas de pluie]
-   - Facturation (confirmée) : à la course, une facture par mois qui regroupe les livraisons du mois.
+5. **Tarifs** : « Sur devis, selon vos besoins ». Pas de mention de grille.
+6. **FAQ** :
+   - Démarrer : aucun délai.
+   - Annulation : un appel ou un message sur WhatsApp.
+   - Facturation : à la course, une facture par mois qui regroupe les livraisons du mois.
+   - Pluie : livraisons assurées, le vélo cargo a une bâche qui protège la marchandise.
 7. **Bloc final** : appel à prendre contact.
 
 ## 3. Les deux pédalent (`/a-propos`)
@@ -60,7 +63,5 @@ Cette page regroupe la demande de service et le contact.
 ---
 
 ## Points restants [À CONFIRMER]
-- Types de marchandises acceptées ou exclues
-- Questions de la FAQ
 - Présentation de Paul et Louis, photo de Louis, photos supplémentaires
 - Informations pour les mentions légales
