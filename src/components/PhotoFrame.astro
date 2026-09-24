@@ -1,0 +1,26 @@
+---
+// Cadre photo : fond ocre, arrondi 16px. Sans image, affiche le placeholder « [Photo : …] ».
+interface Props { label: string; ratio?: string }
+const { label, ratio = '4 / 5' } = Astro.props;
+---
+<figure class="photo-frame" style={`aspect-ratio: ${ratio}`}>
+  <slot>
+    <figcaption class="photo-frame__placeholder">[Photo : {label}]</figcaption>
+  </slot>
+</figure>
+
+<style>
+  .photo-frame {
+    background: var(--ocre);
+    border-radius: var(--r-photo);
+    overflow: hidden;
+    display: grid; place-items: center;
+    border: 1px dashed var(--trait-champ);
+  }
+  .photo-frame__placeholder {
+    padding: var(--sp-5);
+    text-align: center;
+    font-weight: 600;
+    color: var(--encre-douce);
+  }
+</style>

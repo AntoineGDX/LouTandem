@@ -1,0 +1,8 @@
+---
+// Emblème provisoire (en attendant un logo définitif) : hexagone tomette, pointe en haut.
+interface Props { size?: number }
+const { size = 22 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+  <polygon points="32,0 59.7,16 59.7,48 32,64 4.3,48 4.3,16" fill="var(--tomette)" />
+</svg>

@@ -1,0 +1,22 @@
+---
+// En-tête de page intérieure (surtitre + titre + chapeau), suivi de la frise de la page.
+import Frieze from './Frieze.astro';
+interface Props { eyebrow: string; title: string; frieze?: boolean }
+const { eyebrow, title, frieze = true } = Astro.props;
+---
+<section class="page-intro" aria-labelledby="page-title">
+  <div class="container page-intro__inner">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1 id="page-title">{title}</h1>
+    <div class="lead page-intro__lead"><slot /></div>
+  </div>
+</section>
+{frieze && <Frieze />}
+
+<style>
+  .page-intro { padding-block: var(--sp-6); }
+  .page-intro__inner { display: grid; gap: var(--sp-4); }
+  .page-intro__inner > * { max-width: 46rem; }
+  .page-intro__lead { display: grid; gap: var(--sp-3); }
+  @media (min-width: 768px) { .page-intro { padding-block: var(--sp-7); } }
+</style>

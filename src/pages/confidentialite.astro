@@ -1,0 +1,62 @@
+---
+// SQUELETTE — à compléter et faire relire avant la mise en ligne.
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Marker from '../components/Marker.astro';
+import { SITE, CONTACT } from '../data/site';
+---
+<Base title="Politique de confidentialité" description="Comment Lou Tandem utilise les données envoyées via le formulaire de contact.">
+  <PageIntro eyebrow="Informations légales" title="Politique de confidentialité" frieze={false}>
+    <p>Dernière mise à jour : <Marker text="[À CONFIRMER : date]" /></p>
+  </PageIntro>
+
+  <div class="section" data-provisoire>
+    <div class="container prose">
+      <h2>Responsable du traitement</h2>
+      <p>
+        {SITE.name}, Paulo <Marker text="[À CONFIRMER PAULO : nom complet]" />.
+        Contact : <Marker text={CONTACT.email} />
+      </p>
+
+      <h2>Données collectées</h2>
+      <p>Le formulaire « Travailler avec Lou Tandem » collecte :</p>
+      <ul>
+        <li>le nom et le type de votre commerce, son adresse ou son quartier ;</li>
+        <li>le nom de la personne à contacter, son téléphone et son email ;</li>
+        <li>les informations sur les livraisons envisagées (fréquence, volume, zones) ;</li>
+        <li>le contenu de votre message.</li>
+      </ul>
+
+      <h2>Pourquoi ces données</h2>
+      <p>
+        Uniquement pour vous recontacter et étudier votre demande de livraison.
+        Elles ne sont ni revendues, ni utilisées pour de la prospection sans votre accord.
+      </p>
+      <p>Base légale : <Marker text="[À CONFIRMER : mesures précontractuelles prises à votre demande (art. 6.1.b RGPD) ?]" /></p>
+
+      <h2>Qui y a accès</h2>
+      <p>
+        Paulo, et le service qui transmet le formulaire :
+        Web3Forms, qui reçoit le formulaire et le transfère par email.
+        <Marker text="[À CONFIRMER : pays d'hébergement des données Web3Forms et garanties de transfert]" />
+      </p>
+
+      <h2>Durée de conservation</h2>
+      <p><Marker text="[À CONFIRMER PAULO : durée de conservation]" /></p>
+
+      <h2>Vos droits</h2>
+      <p>
+        Vous pouvez demander l'accès à vos données, leur rectification ou leur suppression,
+        et vous opposer à leur traitement, en écrivant à <Marker text={CONTACT.email} />.
+        Vous pouvez aussi adresser une réclamation à la CNIL (<a href="https://www.cnil.fr">cnil.fr</a>).
+      </p>
+
+      <h2>Cookies et services tiers</h2>
+      <p>
+        Ce site ne dépose pas de cookie de mesure d'audience ni de publicité.
+        Les polices de caractères sont chargées depuis Google Fonts, ce qui transmet votre adresse IP à Google.
+        <Marker text="[À CONFIRMER : garder Google Fonts ou héberger les polices sur le site]" />
+      </p>
+    </div>
+  </div>
+</Base>

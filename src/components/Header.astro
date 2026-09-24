@@ -1,0 +1,131 @@
+---
+// En-tête : emblème + nom, liens, bouton principal. Menu repliable sur mobile.
+import Emblem from './Emblem.astro';
+import Button from './Button.astro';
+import { NAV, CTA, SITE } from '../data/site';
+
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => path === href;
+---
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a href="/" class="brand" aria-label={`${SITE.name}, accueil`} aria-current={isCurrent('/') ? 'page' : undefined}>
+      <Emblem />
+      <span class="brand__name">{SITE.name}</span>
+    </a>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-menu-toggle
+    >
+      <svg class="menu-toggle__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path class="l1" d="M4 7h16" /><path class="l2" d="M4 12h16" /><path class="l3" d="M4 17h16" />
+      </svg>
+      <span>Menu</span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Navigation principale">
+      <ul class="site-nav__list">
+        {NAV.map((item) => (
+          <li>
+            <a href={item.href} class="site-nav__link" aria-current={isCurrent(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+        <li class="site-nav__cta">
+          <Button href={CTA.href} size="sm" aria-current={isCurrent(CTA.href) ? 'page' : undefined}>{CTA.label}</Button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const nav = document.getElementById('site-nav');
+  if (toggle && nav) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      nav.classList.toggle('is-open', open);
+    };
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    matchMedia('(min-width: 900px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+  }
+</script>
+
+<style>
+  .site-header { background: var(--creme); border-bottom: 1px solid var(--trait); }
+  .site-header__bar {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: var(--sp-3);
+    min-height: 72px;
+    padding-block: var(--sp-3);
+  }
+
+  .brand {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    min-height: 44px;
+    color: var(--encre); text-decoration: none;
+  }
+  .brand__name {
+    font-family: var(--font-titre); font-style: italic; font-weight: 600;
+    font-size: 28px; line-height: 1;
+  }
+
+  .menu-toggle {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    min-height: 44px; min-width: 44px;
+    padding: var(--sp-2) var(--sp-3);
+    background: transparent;
+    border: 2px solid var(--volet); border-radius: var(--r-bouton);
+    color: var(--volet);
+    font: 600 var(--t-button)/var(--l-button) var(--font-texte);
+    cursor: pointer;
+  }
+  .menu-toggle__icon path {
+    stroke: currentColor; stroke-width: 2; stroke-linecap: round;
+    transition: transform .2s ease, opacity .2s ease; transform-origin: 12px 12px;
+  }
+  .menu-toggle[aria-expanded='true'] .l1 { transform: translateY(5px) rotate(45deg); }
+  .menu-toggle[aria-expanded='true'] .l2 { opacity: 0; }
+  .menu-toggle[aria-expanded='true'] .l3 { transform: translateY(-5px) rotate(-45deg); }
+
+  /* Mobile : menu replié. Sans JS, le bouton est masqué et le menu reste visible. */
+  .site-nav { flex-basis: 100%; }
+  :global(html.js) .site-nav { display: none; }
+  :global(html.js) .site-nav.is-open { display: block; }
+  :global(html:not(.js)) .menu-toggle { display: none; }
+
+  .site-nav__list {
+    list-style: none; margin: 0; padding: var(--sp-2) 0 var(--sp-3);
+    display: grid; gap: var(--sp-1);
+  }
+  .site-nav__link {
+    display: flex; align-items: center;
+    min-height: 44px; padding-inline: var(--sp-1);
+    color: var(--encre); font-weight: 500; text-decoration: none;
+  }
+  .site-nav__link:hover { color: var(--volet); text-decoration: underline; }
+  .site-nav__link[aria-current='page'] { color: var(--volet); text-decoration: underline; text-decoration-thickness: 2px; }
+  .site-nav__cta { margin-top: var(--sp-3); }
+  .site-nav__cta :global(.btn) { width: 100%; }
+
+  @media (min-width: 900px) {
+    .site-header__bar { flex-wrap: nowrap; }
+    .menu-toggle, :global(html.js) .menu-toggle { display: none; }
+    .site-nav, :global(html.js) .site-nav { display: block; flex-basis: auto; }
+    .site-nav__list { display: flex; align-items: center; gap: var(--sp-5); padding: 0; }
+    .site-nav__cta { margin-top: 0; }
+    .site-nav__cta :global(.btn) { width: auto; }
+  }
+</style>

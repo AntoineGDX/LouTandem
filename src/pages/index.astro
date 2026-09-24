@@ -1,0 +1,148 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+import HeroPhoto from '../components/HeroPhoto.astro';
+import Frieze from '../components/Frieze.astro';
+import StepCard from '../components/StepCard.astro';
+import Marker from '../components/Marker.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { SITE, CTA, CONTACT } from '../data/site';
+
+const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épiceries'];
+---
+<Base title={SITE.name} description={SITE.description}>
+  <!-- 1. Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero__grid">
+      <div class="hero__text">
+        <p class="eyebrow">Lou Tandem · Nice</p>
+        <h1 id="hero-title">Livraison à vélo cargo pour les commerces de Nice</h1>
+        <p class="lead">
+          Paulo récupère la marchandise chez vous et la livre à vos clients,
+          dans Nice centre, du mardi au samedi.
+        </p>
+        <div class="actions">
+          <Button href={CTA.href}>{CTA.label}</Button>
+          <Button href={CONTACT.whatsappUrl} variant="secondary">Écrire sur WhatsApp</Button>
+        </div>
+        <p class="small muted">WhatsApp : <Marker text={CONTACT.whatsappLabel} /></p>
+      </div>
+      <HeroPhoto />
+    </div>
+  </section>
+
+  <Frieze />
+
+  <!-- 2. Le principe en 3 étapes -->
+  <section class="section" aria-labelledby="principe-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Comment ça marche</p>
+        <h2 id="principe-title">Le principe, en 3 étapes</h2>
+      </div>
+      <ol class="grid grid--3 steps">
+        <StepCard number={1} title="Vous envoyez vos livraisons">
+          <p>La veille, vous envoyez à Paulo sur WhatsApp les livraisons du lendemain.</p>
+        </StepCard>
+        <StepCard number={2} title="Paulo passe chez vous">
+          <p>Il récupère la marchandise directement dans votre commerce.</p>
+        </StepCard>
+        <StepCard number={3} title="Il livre vos clients">
+          <p>Vos clients reçoivent leur commande, livrée à vélo cargo.</p>
+        </StepCard>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 3. Pour qui -->
+  <section class="section section--ocre" aria-labelledby="pourqui-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Pour qui</p>
+        <h2 id="pourqui-title">Pour les commerces de proximité</h2>
+        <p class="lead">Vous tenez un commerce à Nice et vous voulez faire livrer vos clients : Lou Tandem est fait pour vous.</p>
+      </div>
+      <ul class="commerces" role="list">
+        {commerces.map((c) => <li class="card commerce">{c}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. Pourquoi le vélo cargo — TEXTE PROVISOIRE -->
+  <section class="section" aria-labelledby="velo-title" data-provisoire>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Pourquoi le vélo cargo</p>
+        <h2 id="velo-title">Le bon véhicule pour le centre de Nice</h2>
+        <p><Marker text="[À CONFIRMER PAULO : arguments qu'il veut mettre en avant]" /></p>
+      </div>
+      <ul class="grid grid--3 args" role="list">
+        <li class="card">
+          <h3>Il passe partout</h3>
+          <p>Les rues étroites du centre ne posent pas de problème à un vélo.</p>
+        </li>
+        <li class="card">
+          <h3>Il s'arrête au plus près</h3>
+          <p>Pas besoin de chercher une place : la livraison se fait au pied de la porte.</p>
+        </li>
+        <li class="card">
+          <h3>Il livre en douceur</h3>
+          <p>Une livraison silencieuse, sans gaz d'échappement devant chez vos clients.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. Zone et jours -->
+  <section class="section section--ocre" aria-labelledby="zone-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Zone et jours</p>
+        <h2 id="zone-title">Où et quand</h2>
+      </div>
+      <div class="grid grid--2 infos">
+        <div class="card">
+          <h3>Zone</h3>
+          <p>{SITE.zone}.</p>
+          <p>Des extensions proches sont possibles, au cas par cas. <Marker text={SITE.zoneExtension} /></p>
+        </div>
+        <div class="card">
+          <h3>Jours</h3>
+          <p>{SITE.days}.</p>
+          <p>Horaires : <Marker text={SITE.hours} /></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Bloc final -->
+  <FinalCta />
+</Base>
+
+<style>
+  .hero { padding-block: var(--sp-6); }
+  .hero__grid { display: grid; gap: var(--sp-6); }
+  .hero__text { display: grid; gap: var(--sp-4); align-content: center; }
+  .hero__text .actions { margin-top: var(--sp-2); }
+  @media (min-width: 900px) {
+    .hero { padding-block: var(--sp-7); }
+    .hero__grid { grid-template-columns: 1fr 1fr; gap: var(--sp-7); align-items: center; }
+  }
+
+  .steps { list-style: none; padding: 0; margin: 0; }
+
+  .commerces {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: var(--sp-3);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .commerce {
+    padding: var(--sp-4);
+    font-family: var(--font-titre); font-weight: 600;
+    font-size: var(--t-sub); line-height: var(--l-sub);
+  }
+
+  .args { list-style: none; padding: 0; margin: 0; }
+  .args .card, .infos .card { display: grid; gap: var(--sp-2); align-content: start; }
+
+</style>

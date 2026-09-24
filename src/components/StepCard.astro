@@ -1,0 +1,28 @@
+---
+// Carte d'étape : pastille hexagonale numérotée + titre + texte.
+interface Props { number: number; title: string; headingLevel?: 'h2' | 'h3' }
+const { number, title, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+---
+<li class="card step">
+  <span class="step__badge" aria-hidden="true">
+    <svg width="44" height="44" viewBox="0 0 64 64" focusable="false">
+      <polygon points="32,0 59.7,16 59.7,48 32,64 4.3,48 4.3,16" fill="var(--tomette)" />
+    </svg>
+    <span class="step__num">{number}</span>
+  </span>
+  <Heading class="step__title"><span class="sr-only">Étape {number} : </span>{title}</Heading>
+  <div class="step__text"><slot /></div>
+</li>
+
+<style>
+  .step { display: grid; gap: var(--sp-3); align-content: start; list-style: none; }
+  .step__badge { position: relative; width: 44px; height: 44px; }
+  .step__num {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    font-family: var(--font-titre); font-weight: 600; font-size: 20px; line-height: 1;
+    color: var(--creme);
+  }
+  .step__title { font-size: var(--t-sub); line-height: var(--l-sub); }
+</style>

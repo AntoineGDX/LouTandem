@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Marker from '../components/Marker.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { SITE } from '../data/site';
+
+const faq = [
+  { q: 'Combien de temps faut-il pour démarrer ?', a: '[À CONFIRMER PAULO : délai pour démarrer]' },
+  { q: 'Et si je dois annuler une livraison ?', a: '[À CONFIRMER PAULO : annulation]' },
+  { q: 'Comment se passe la facturation ?', a: '[À CONFIRMER PAULO : facturation]' },
+  { q: "Que se passe-t-il en cas de pluie ?", a: '[À CONFIRMER PAULO : livraisons par temps de pluie]' },
+];
+---
+<Base
+  title="Le service de livraison à vélo cargo"
+  description="Lou Tandem récupère la marchandise chez votre commerce et la livre à vos clients à vélo cargo, dans Nice centre, du mardi au samedi. Organisation simple par WhatsApp, sur devis."
+>
+  <PageIntro eyebrow="Le service" title="Livraison à vélo cargo pour votre commerce">
+    <p>Paulo récupère la marchandise chez vous et la livre à vos clients, dans Nice centre, du mardi au samedi.</p>
+  </PageIntro>
+
+  <!-- 1. Ce que fait Lou Tandem -->
+  <section class="section" aria-labelledby="quoi-title">
+    <div class="container prose">
+      <p class="eyebrow">Ce que fait Lou Tandem</p>
+      <h2 id="quoi-title">De votre commerce à vos clients</h2>
+      <p>
+        Paulo passe récupérer la marchandise dans votre commerce, puis la livre chez vos clients.
+        Ce sont surtout des professionnels, parfois des particuliers.
+        <Marker text="[À CONFIRMER PAULO : ce sont les clients particuliers d'un commerce, ou des particuliers qui commandent directement à Lou Tandem ?]" />
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. Comment on travaille ensemble -->
+  <section class="section section--ocre" aria-labelledby="comment-title">
+    <div class="container prose">
+      <p class="eyebrow">Comment on travaille ensemble</p>
+      <h2 id="comment-title">Tout s'organise sur WhatsApp</h2>
+      <ul>
+        <li>Vous envoyez à Paulo le nombre de livraisons à faire, en général la veille, parfois plus tôt.</li>
+        <li>Les livraisons peuvent être ponctuelles ou régulières. <Marker text="[À CONFIRMER PAULO : accepte-t-il une livraison ponctuelle ou le jour même ?]" /></li>
+        <li>Pas de réservation ni de paiement en ligne : on en parle directement.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. Ce qu'on peut transporter -->
+  <section class="section" aria-labelledby="transport-title">
+    <div class="container prose">
+      <p class="eyebrow">Ce qu'on peut transporter</p>
+      <h2 id="transport-title">Un vélo cargo, un espace de chargement à l'avant</h2>
+      <p>
+        Paulo roule sur un vélo cargo classique, avec un espace de chargement à l'avant.
+        La capacité se raisonne en volume : on regarde ensemble ce que vous avez à livrer avant de démarrer.
+      </p>
+      <p><Marker text="[À CONFIRMER PAULO : produits frais, fragiles, contraintes]" /></p>
+    </div>
+  </section>
+
+  <!-- 4. Zone et jours -->
+  <section class="section section--ocre" aria-labelledby="zone-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Zone et jours</p>
+        <h2 id="zone-title">Où et quand</h2>
+      </div>
+      <div class="grid grid--2">
+        <div class="card stack">
+          <h3>Zone</h3>
+          <p>{SITE.zone}, et les alentours proches au cas par cas.</p>
+          <p><Marker text={SITE.zoneExtension} /></p>
+        </div>
+        <div class="card stack">
+          <h3>Jours</h3>
+          <p>{SITE.days}.</p>
+          <p>Horaires : <Marker text={SITE.hours} /></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Tarifs -->
+  <section class="section" aria-labelledby="tarifs-title">
+    <div class="container prose">
+      <p class="eyebrow">Tarifs</p>
+      <h2 id="tarifs-title">Sur devis, selon vos besoins</h2>
+      <p>Pas de grille de prix : le tarif dépend de vos livraisons. {SITE.pricing} <Marker text={SITE.pricingMarker} /></p>
+    </div>
+  </section>
+
+  <!-- 6. FAQ — questions et réponses À CONFIRMER -->
+  <section class="section section--ocre" aria-labelledby="faq-title" data-provisoire>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Questions fréquentes</p>
+        <h2 id="faq-title">Vos questions</h2>
+        <p><Marker text="[À CONFIRMER PAULO : questions de la FAQ]" /></p>
+      </div>
+      <div class="faq">
+        {faq.map((item) => (
+          <details class="faq__item">
+            <summary><span>{item.q}</span></summary>
+            <div class="faq__answer"><Marker text={item.a} /></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Bloc final -->
+  <FinalCta />
+</Base>
+
+<style>
+  .stack { display: grid; gap: var(--sp-2); align-content: start; }
+
+  .faq { display: grid; gap: var(--sp-3); max-width: 46rem; }
+  .faq__item {
+    background: var(--creme);
+    border: 1px solid var(--trait);
+    border-radius: var(--r-carte);
+  }
+  .faq__item summary {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
+    min-height: 44px;
+    padding: var(--sp-4) var(--sp-5);
+    font-family: var(--font-titre); font-weight: 600;
+    font-size: var(--t-sub); line-height: var(--l-sub);
+    cursor: pointer;
+    list-style: none;
+  }
+  .faq__item summary::-webkit-details-marker { display: none; }
+  .faq__item summary::after {
+    content: '';
+    flex: none;
+    width: 10px; height: 10px;
+    border-right: 2px solid var(--volet); border-bottom: 2px solid var(--volet);
+    transform: rotate(45deg) translateY(-3px);
+    transition: transform .15s ease;
+  }
+  .faq__item[open] summary::after { transform: rotate(-135deg) translateY(-3px); }
+  .faq__item summary:focus-visible { outline-offset: -3px; border-radius: var(--r-carte); }
+  .faq__answer { padding: 0 var(--sp-5) var(--sp-5); }
+</style>

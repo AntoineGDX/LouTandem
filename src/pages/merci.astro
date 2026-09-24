@@ -1,0 +1,18 @@
+---
+// Page de retour après l'envoi du formulaire (redirection configurée côté service de formulaires).
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Button from '../components/Button.astro';
+import Marker from '../components/Marker.astro';
+import { SITE } from '../data/site';
+---
+<Base title="Demande envoyée" description="Votre demande a bien été envoyée à Lou Tandem." noindex>
+  <PageIntro eyebrow="Demande envoyée" title="Merci, c'est bien reçu">
+    <p>Paulo vous recontacte pour parler de vos livraisons. Délai de réponse : <Marker text={SITE.replyDelay} /></p>
+  </PageIntro>
+  <div class="section">
+    <div class="container actions">
+      <Button href="/" variant="secondary">Retour à l'accueil</Button>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,27 @@
+---
+// Bloc final présent en bas de chaque page : appel à prendre contact.
+import Button from './Button.astro';
+import { CTA } from '../data/site';
+interface Props { title?: string }
+const { title = 'Vous voulez faire livrer vos clients ?' } = Astro.props;
+---
+<section class="section section--ocre final-cta" aria-labelledby="final-cta-title">
+  <div class="container final-cta__inner">
+    <div class="final-cta__text">
+      <h2 id="final-cta-title">{title}</h2>
+      <p class="lead">Parlons de vos besoins. Paulo vous recontacte pour voir comment démarrer ensemble.</p>
+    </div>
+    <div class="actions">
+      <Button href={CTA.href}>{CTA.label}</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta { border-top: 1px solid var(--trait); }
+  .final-cta__inner { display: grid; gap: var(--sp-5); }
+  .final-cta__text { display: grid; gap: var(--sp-3); max-width: 40rem; }
+  @media (min-width: 900px) {
+    .final-cta__inner { grid-template-columns: 1fr auto; align-items: center; }
+  }
+</style>

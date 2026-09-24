@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import PhotoFrame from '../components/PhotoFrame.astro';
+import Marker from '../components/Marker.astro';
+import FinalCta from '../components/FinalCta.astro';
+---
+<Base
+  title="Qui est Paulo"
+  description="Derrière Lou Tandem, il y a Paulo, livreur indépendant à vélo cargo à Nice. Il livre les clients des commerces de proximité, du mardi au samedi."
+>
+  <PageIntro eyebrow="Qui est Paulo" title="Paulo, livreur à vélo cargo à Nice">
+    <p>Lou Tandem, c'est l'activité de Paulo, livreur indépendant à vélo cargo à Nice.</p>
+  </PageIntro>
+
+  <!-- 1. Présentation de Paulo — contenu À CONFIRMER -->
+  <section class="section" aria-labelledby="paulo-title" data-provisoire>
+    <div class="container two-col">
+      <div class="prose">
+        <p class="eyebrow">Son parcours</p>
+        <h2 id="paulo-title">Son histoire</h2>
+        <p><Marker text="[À CONFIRMER PAULO : présentation, parcours, ancrage niçois]" /></p>
+      </div>
+      <PhotoFrame label="Paulo" />
+    </div>
+  </section>
+
+  <!-- 2. Le nom Lou Tandem -->
+  <section class="section section--ocre" aria-labelledby="nom-title" data-provisoire>
+    <div class="container prose">
+      <p class="eyebrow">Le nom</p>
+      <h2 id="nom-title">Pourquoi « Lou Tandem » ?</h2>
+      <p><Marker text="[À CONFIRMER PAULO : origine du nom]" /></p>
+    </div>
+  </section>
+
+  <!-- 3. Photos — à fournir -->
+  <section class="section" aria-labelledby="photos-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">En images</p>
+        <h2 id="photos-title">Le vélo et les tournées</h2>
+        <p><Marker text="[À CONFIRMER PAULO : photos supplémentaires à fournir]" /></p>
+      </div>
+      <div class="grid grid--2">
+        <PhotoFrame label="le vélo cargo seul" ratio="4 / 3" />
+        <PhotoFrame label="une livraison en situation" ratio="4 / 3" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Bloc final -->
+  <FinalCta />
+</Base>
+
+<style>
+  .two-col { display: grid; gap: var(--sp-6); align-items: start; }
+  @media (min-width: 900px) {
+    .two-col { grid-template-columns: 3fr 2fr; gap: var(--sp-7); }
+  }
+</style>

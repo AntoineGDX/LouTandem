@@ -1,0 +1,67 @@
+/* Tokens — repris à l'identique de docs/design.md. Ne pas modifier sans mettre la doc à jour. */
+:root {
+  --creme: #F7F1E6;          /* fond de page, fond des cartes posées sur ocre */
+  --ocre: #F0DFBF;           /* sections alternées, cadres photo */
+  --tomette: #A3472A;        /* marque : bouton principal, emblème, numéros d'étapes */
+  --tomette-foncee: #7E3520; /* survol bouton principal ; décor frise */
+  --tomette-rose: #B8603F;   /* décor frise uniquement */
+  --tomette-claire: #C9784F; /* décor frise uniquement — jamais pour du texte */
+  --volet: #2F5D50;          /* liens, bouton secondaire (contour), surtitres, focus */
+  --encre: #2A211B;          /* texte principal */
+  --encre-douce: #6B5A4C;    /* texte secondaire */
+  --trait: #D5BF9C;          /* bordures de cartes, séparateurs */
+  --trait-champ: #8C7A66;    /* bordures des champs de formulaire */
+  --sur-tomette: #FFFFFF;    /* texte sur tomette */
+  --erreur: #A1261B;         /* erreurs de formulaire */
+
+  /* Typographie */
+  --font-titre: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-texte: 'Work Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Espacements : 4, 8, 12, 16, 24, 32, 48, 64 */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  /* Arrondis */
+  --r-bouton: 6px;
+  --r-carte: 10px;
+  --r-photo: 16px;
+
+  /* Marges latérales (mobile d'abord) */
+  --gouttiere: var(--sp-4);
+  --largeur-max: 1200px;
+
+  /* Tailles de texte — mobile */
+  --t-display: 40px;   --l-display: 44px;
+  --t-heading: 26px;   --l-heading: 32px;
+  --t-sub: 20px;       --l-sub: 26px;
+  --t-lead: 17px;      --l-lead: 26px;
+  --t-body: 16px;      --l-body: 24px;
+  --t-small: 14px;     --l-small: 20px;
+  --t-label: 13px;     --l-label: 16px;
+  --t-button: 16px;    --l-button: 20px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gouttiere: var(--sp-6);
+    --t-display: 64px;   --l-display: 68px;
+    --t-heading: 32px;   --l-heading: 38px;
+    --t-sub: 22px;       --l-sub: 28px;
+    --t-lead: 19px;      --l-lead: 29px;
+    --t-body: 17px;      --l-body: 26px;
+    --t-small: 15px;     --l-small: 22px;
+    --t-label: 14px;     --l-label: 18px;
+    --t-button: 17px;    --l-button: 20px;
+  }
+}
+
+@media (min-width: 1100px) {
+  :root { --gouttiere: var(--sp-8); }
+}

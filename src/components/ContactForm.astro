@@ -1,0 +1,245 @@
+---
+// Formulaire de premier contact (champs : docs/arborescence.md, page 4).
+// Envoi via Web3Forms (voir FORM dans src/data/site.ts) : fetch + redirection vers /merci ;
+// sans JS, envoi classique en POST (Web3Forms affiche alors sa propre page de confirmation).
+import Button from './Button.astro';
+import Marker from './Marker.astro';
+import { FORM } from '../data/site';
+
+const types = ['Boulangerie', 'Café', 'Restaurant', 'Primeur', 'Épicerie', 'Autre'];
+---
+<form
+  class="form"
+  method="post"
+  action={FORM.endpoint}
+  data-ready={FORM.accessKey ? 'true' : 'false'}
+  data-thanks={FORM.thanksPath}
+  data-contact-form
+  aria-describedby="form-required-note"
+>
+  <p id="form-required-note" class="small muted">Les champs marqués d'un astérisque (*) sont obligatoires.</p>
+
+  <fieldset class="form__group">
+    <legend>Votre commerce</legend>
+
+    <div class="field">
+      <label for="commerce">Nom du commerce *</label>
+      <input id="commerce" name="nom_commerce" type="text" autocomplete="organization" required
+        aria-describedby="commerce-error" data-error="Indiquez le nom de votre commerce." />
+      <p id="commerce-error" class="field__error" hidden></p>
+    </div>
+
+    <div class="field">
+      <label for="type">Type de commerce *</label>
+      <select id="type" name="type_commerce" required aria-describedby="type-error" data-error="Choisissez un type de commerce.">
+        <option value="">Choisir…</option>
+        {types.map((t) => <option value={t}>{t}</option>)}
+      </select>
+      <p id="type-error" class="field__error" hidden></p>
+    </div>
+
+    <div class="field">
+      <label for="adresse">Adresse du commerce (quartier) *</label>
+      <input id="adresse" name="adresse_commerce" type="text" autocomplete="street-address" required
+        aria-describedby="adresse-hint adresse-error" data-error="Indiquez l'adresse ou le quartier de votre commerce." />
+      <p id="adresse-hint" class="field__hint">L'adresse complète ou au moins le quartier.</p>
+      <p id="adresse-error" class="field__error" hidden></p>
+    </div>
+  </fieldset>
+
+  <fieldset class="form__group">
+    <legend>Vos coordonnées</legend>
+
+    <div class="field">
+      <label for="contact">Nom du contact *</label>
+      <input id="contact" name="nom_contact" type="text" autocomplete="name" required
+        aria-describedby="contact-error" data-error="Indiquez votre nom." />
+      <p id="contact-error" class="field__error" hidden></p>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="tel">Téléphone *</label>
+        <input id="tel" name="telephone" type="tel" autocomplete="tel" inputmode="tel" required
+          pattern="[\d\s.+\-]{10,20}"
+          aria-describedby="tel-error" data-error="Indiquez un numéro de téléphone valide." />
+        <p id="tel-error" class="field__error" hidden></p>
+      </div>
+
+      <div class="field">
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" autocomplete="email" required
+          aria-describedby="email-error" data-error="Indiquez une adresse email valide, par exemple nom@domaine.fr." />
+        <p id="email-error" class="field__error" hidden></p>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="form__group">
+    <legend>Les livraisons envisagées</legend>
+
+    <fieldset class="field choices">
+      <legend class="field__label">Fréquence</legend>
+      <div class="choices__list">
+        <label class="choice"><input type="radio" name="frequence" value="Ponctuel" /> Ponctuel</label>
+        <label class="choice"><input type="radio" name="frequence" value="Régulier" /> Régulier</label>
+      </div>
+    </fieldset>
+
+    <div class="field">
+      <label for="volume">Volume approximatif</label>
+      <input id="volume" name="volume" type="text" aria-describedby="volume-hint" />
+      <p id="volume-hint" class="field__hint">Nombre de livraisons, taille des colis : une estimation suffit.</p>
+    </div>
+
+    <div class="field">
+      <label for="zones">Zones de livraison</label>
+      <input id="zones" name="zones_livraison" type="text" aria-describedby="zones-hint" />
+      <p id="zones-hint" class="field__hint">Les quartiers où vivent ou travaillent vos clients.</p>
+    </div>
+  </fieldset>
+
+  <div class="field">
+    <label for="message">Votre message</label>
+    <textarea id="message" name="message" rows="5"></textarea>
+  </div>
+
+  <!-- Web3Forms : clé, sujet de l'email, anti-spam (case invisible, laissée vide par les humains) -->
+  <input type="hidden" name="access_key" value={FORM.accessKey} />
+  <input type="hidden" name="subject" value={FORM.subject} />
+  <input type="hidden" name="from_name" value="Site Lou Tandem" />
+  <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <p class="small muted">
+    Vos informations servent uniquement à vous recontacter au sujet de votre demande.
+    Voir la <a href="/confidentialite">politique de confidentialité</a>.
+  </p>
+
+  <div class="actions">
+    <Button type="submit">Envoyer ma demande</Button>
+  </div>
+  {!FORM.accessKey && <p class="small">Envoi du formulaire : <Marker text="[À CONFIRMER : clé d'accès Web3Forms]" /></p>}
+
+  <p class="form__status" role="status" aria-live="polite" data-form-status></p>
+</form>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+  if (form) {
+    form.noValidate = true;
+    const status = form.querySelector<HTMLElement>('[data-form-status]');
+    const fields = Array.from(
+      form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[required]')
+    );
+
+    const check = (field: (typeof fields)[number]) => {
+      const error = document.getElementById(`${field.id}-error`);
+      const ok = field.checkValidity();
+      field.setAttribute('aria-invalid', String(!ok));
+      if (error) {
+        error.textContent = ok ? '' : field.dataset.error || field.validationMessage;
+        error.hidden = ok;
+      }
+      return ok;
+    };
+
+    fields.forEach((f) => {
+      f.addEventListener('blur', () => { if (f.value) check(f); });
+      f.addEventListener('input', () => { if (f.getAttribute('aria-invalid') === 'true') check(f); });
+    });
+
+    const say = (msg: string, isError = true) => {
+      if (!status) return;
+      status.textContent = msg;
+      status.classList.toggle('is-error', isError);
+    };
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const invalid = fields.filter((f) => !check(f));
+      if (invalid.length) {
+        say(`${invalid.length} champ${invalid.length > 1 ? 's' : ''} à corriger.`);
+        invalid[0].focus();
+        return;
+      }
+      if (form.dataset.ready !== 'true') {
+        say("Le formulaire n'est pas encore branché : [À CONFIRMER : clé d'accès Web3Forms].");
+        return;
+      }
+
+      submit?.setAttribute('disabled', '');
+      say('Envoi en cours…', false);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.success) throw new Error(data.message || res.statusText);
+        window.location.assign(form.dataset.thanks || '/merci');
+      } catch {
+        say("L'envoi n'a pas fonctionné. Vérifiez votre connexion et réessayez, ou écrivez directement sur WhatsApp.");
+        submit?.removeAttribute('disabled');
+      }
+    });
+  }
+</script>
+
+<style>
+  .form { display: grid; gap: var(--sp-5); }
+  .form__group { border: 0; padding: 0; margin: 0; display: grid; gap: var(--sp-4); min-width: 0; }
+  .form__group > legend {
+    padding: 0; margin-bottom: var(--sp-4);
+    font-family: var(--font-titre); font-weight: 600;
+    font-size: var(--t-sub); line-height: var(--l-sub);
+  }
+
+  .field { display: grid; gap: var(--sp-2); min-width: 0; }
+  .field-row { display: grid; gap: var(--sp-4); }
+  @media (min-width: 640px) { .field-row { grid-template-columns: 1fr 1fr; } }
+
+  .field label, .field__label {
+    font-size: var(--t-label); line-height: var(--l-label); font-weight: 600;
+    color: var(--encre);
+  }
+  .field__hint { font-size: var(--t-small); line-height: var(--l-small); color: var(--encre-douce); }
+  .field__error { font-size: var(--t-small); line-height: var(--l-small); font-weight: 600; color: var(--erreur); }
+
+  input[type='text'], input[type='tel'], input[type='email'], select, textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: var(--sp-2) var(--sp-3);
+    background: var(--creme);
+    color: var(--encre);
+    border: 1px solid var(--trait-champ);
+    border-radius: var(--r-bouton);
+    font: 400 var(--t-body)/var(--l-body) var(--font-texte);
+  }
+  textarea { resize: vertical; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--volet); outline-offset: 1px; border-color: var(--volet);
+  }
+  [aria-invalid='true'] { border-color: var(--erreur); border-width: 2px; }
+
+  .choices { border: 0; padding: 0; margin: 0; }
+  .choices > legend { padding: 0; margin-bottom: var(--sp-2); }
+  .choices__list { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+  .choice {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    min-height: 44px; padding: var(--sp-2) var(--sp-4);
+    border: 1px solid var(--trait-champ); border-radius: var(--r-bouton);
+    background: var(--creme);
+    font-size: var(--t-body); font-weight: 400;
+    cursor: pointer;
+  }
+  .choice input { width: 20px; height: 20px; margin: 0; accent-color: var(--volet); }
+  .choice:has(input:checked) { border-color: var(--volet); border-width: 2px; }
+  .choice:has(input:focus-visible) { outline: 3px solid var(--volet); outline-offset: 2px; }
+
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .form__status:empty { display: none; }
+  .form__status { font-weight: 600; color: var(--encre); }
+  .form__status.is-error { color: var(--erreur); }
+</style>

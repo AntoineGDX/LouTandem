@@ -1,0 +1,48 @@
+---
+// SQUELETTE — à compléter avec les informations légales de Paulo.
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Marker from '../components/Marker.astro';
+import { SITE, CONTACT } from '../data/site';
+---
+<Base title="Mentions légales" description="Mentions légales du site Lou Tandem.">
+  <PageIntro eyebrow="Informations légales" title="Mentions légales" frieze={false}>
+    <p>Dernière mise à jour : <Marker text="[À CONFIRMER : date]" /></p>
+  </PageIntro>
+
+  <div class="section" data-provisoire>
+    <div class="container prose">
+      <h2>Éditeur du site</h2>
+      <ul>
+        <li>Nom commercial : {SITE.name}</li>
+        <li>Responsable : Paulo <Marker text="[À CONFIRMER PAULO : nom complet]" /></li>
+        <li>Statut juridique : <Marker text="[À CONFIRMER PAULO : statut]" /></li>
+        <li>SIRET : <Marker text="[À CONFIRMER PAULO : SIRET]" /></li>
+        <li>Adresse : <Marker text="[À CONFIRMER PAULO : adresse de domiciliation]" /></li>
+        <li>Email : <Marker text={CONTACT.email} /></li>
+        <li>Téléphone : <Marker text={CONTACT.phoneLabel} /></li>
+        <li>Directeur de la publication : <Marker text="[À CONFIRMER PAULO]" /></li>
+      </ul>
+
+      <h2>Hébergement</h2>
+      <ul>
+        <li>Hébergeur : <Marker text="[À CONFIRMER : hébergeur]" /></li>
+        <li>Adresse : <Marker text="[À CONFIRMER : adresse de l'hébergeur]" /></li>
+        <li>Contact : <Marker text="[À CONFIRMER : contact de l'hébergeur]" /></li>
+      </ul>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        Les textes, photos et éléments graphiques de ce site appartiennent à {SITE.name},
+        sauf mention contraire. Toute reproduction sans autorisation est interdite.
+      </p>
+      <p>Crédits photos : <Marker text="[À CONFIRMER PAULO : auteur des photos]" /></p>
+
+      <h2>Données personnelles</h2>
+      <p>
+        Le traitement des données envoyées via le formulaire de contact est décrit dans la
+        <a href="/confidentialite">politique de confidentialité</a>.
+      </p>
+    </div>
+  </div>
+</Base>

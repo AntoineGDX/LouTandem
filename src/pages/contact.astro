@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Button from '../components/Button.astro';
+import Marker from '../components/Marker.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { SITE, CONTACT } from '../data/site';
+---
+<Base
+  title="Travailler avec Lou Tandem"
+  description="Vous êtes un commerce à Nice et vous voulez faire livrer vos clients à vélo cargo ? Écrivez à Paulo sur WhatsApp ou remplissez le formulaire de premier contact."
+>
+  <!-- 1. Introduction -->
+  <PageIntro eyebrow="Travailler avec Lou Tandem" title="Faisons connaissance">
+    <p>Vous êtes un commerce à Nice et vous voulez faire livrer vos clients ?</p>
+    <p>Écrivez directement à Paulo, ou laissez-lui quelques informations : il vous recontacte pour en parler.</p>
+  </PageIntro>
+
+  <div class="section">
+    <div class="container contact-grid">
+      <!-- 2. Contact direct -->
+      <section class="card direct" id="contact-direct" aria-labelledby="direct-title">
+        <h2 id="direct-title" class="direct__title">Contact direct</h2>
+        <p>Le plus simple : un message sur WhatsApp ou un appel.</p>
+        <div class="direct__actions">
+          <Button href={CONTACT.whatsappUrl} variant="secondary">Écrire sur WhatsApp</Button>
+          <Button href={CONTACT.phoneHref} variant="secondary">Appeler Paulo</Button>
+        </div>
+        <ul class="small direct__list">
+          <li>WhatsApp : <Marker text={CONTACT.whatsappLabel} /></li>
+          <li>Téléphone : <Marker text={CONTACT.phoneLabel} /></li>
+        </ul>
+        <p class="small muted">Déjà client ? Vos commandes du quotidien continuent sur WhatsApp.</p>
+      </section>
+
+      <!-- 3. Formulaire de premier contact -->
+      <section aria-labelledby="form-title" class="form-wrap">
+        <h2 id="form-title">Formulaire de premier contact</h2>
+        <ContactForm />
+
+        <!-- 4. Après l'envoi -->
+        <div class="after">
+          <h3>Après l'envoi</h3>
+          <p>Paulo vous recontacte pour parler de vos livraisons. Délai de réponse : <Marker text={SITE.replyDelay} /></p>
+        </div>
+      </section>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .contact-grid { display: grid; gap: var(--sp-6); align-items: start; }
+  @media (min-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr 2fr; gap: var(--sp-7); }
+    .direct { position: sticky; top: var(--sp-5); }
+  }
+
+  .direct { display: grid; gap: var(--sp-4); background: var(--ocre); }
+  .direct__title { font-size: var(--t-sub); line-height: var(--l-sub); }
+  .direct__actions { display: grid; gap: var(--sp-3); }
+  .direct__list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--sp-2); }
+
+  .form-wrap { display: grid; gap: var(--sp-5); max-width: 44rem; }
+  .after { display: grid; gap: var(--sp-2); padding-top: var(--sp-5); border-top: 1px solid var(--trait); }
+</style>

@@ -1,0 +1,69 @@
+---
+// Pied de page : renvoi vers « Travailler avec Lou Tandem », navigation, pages légales.
+import Emblem from './Emblem.astro';
+import Marker from './Marker.astro';
+import { SITE, NAV, CTA, CONTACT } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <p class="brand-line"><Emblem /><span>{SITE.name}</span></p>
+      <p class="small">{SITE.tagline}.</p>
+      <p class="small">{SITE.zone}, {SITE.days.toLowerCase()}.</p>
+    </div>
+
+    <nav aria-labelledby="footer-nav-title">
+      <h2 id="footer-nav-title" class="eyebrow">Le site</h2>
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        {NAV.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        <li><a href={CTA.href}>{CTA.label}</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h2 class="eyebrow">Contact</h2>
+      <ul class="small">
+        <li>WhatsApp : <Marker text={CONTACT.whatsappLabel} /></li>
+        <li>Téléphone : <Marker text={CONTACT.phoneLabel} /></li>
+        <li>Email : <Marker text={CONTACT.email} /></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="site-footer__legal small">
+      <p>© {year} {SITE.name}</p>
+      <ul>
+        <li><a href="/mentions-legales">Mentions légales</a></li>
+        <li><a href="/confidentialite">Confidentialité</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--creme); border-top: 1px solid var(--trait); padding-top: var(--sp-7); }
+  .site-footer__grid { display: grid; gap: var(--sp-6); }
+  .site-footer__brand { display: grid; gap: var(--sp-2); color: var(--encre-douce); }
+  .brand-line {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    font-family: var(--font-titre); font-style: italic; font-weight: 600; font-size: 24px; line-height: 1;
+    color: var(--encre);
+  }
+  .site-footer h2 { font-family: var(--font-texte); margin-bottom: var(--sp-2); }
+  .site-footer ul { list-style: none; padding: 0; margin: 0; }
+  .site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+  .site-footer__grid .small li { padding-block: var(--sp-2); }
+  .site-footer__legal {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--sp-3);
+    margin-top: var(--sp-6); padding-block: var(--sp-4);
+    border-top: 1px solid var(--trait);
+    color: var(--encre-douce);
+  }
+  .site-footer__legal ul { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
+  @media (min-width: 768px) {
+    .site-footer__grid { grid-template-columns: 2fr 1fr 1.4fr; }
+  }
+</style>
