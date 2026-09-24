@@ -30,10 +30,18 @@ src/pages/                /, /livraison, /a-propos, /contact, /merci,
                           /mentions-legales, /confidentialite, 404, robots.txt
 ```
 
-## À faire avant la mise en ligne
+## Hébergement
+
+GitHub Pages, via `.github/workflows/deploy.yml` : chaque push sur `main` republie le site sur
+https://antoinegdx.github.io/LouTandem/ (réglage du dépôt : Settings → Pages → Source : GitHub Actions).
+Les liens internes passent par `url()` (`src/data/site.ts`) pour tenir compte du préfixe `/LouTandem`.
+
+## À faire avant le lancement
+
+0. Passer `PRE_LAUNCH` à `false` dans `src/data/site.ts` (retire le `noindex` qui cache le site de Google).
 
 1. Remplacer toutes les valeurs `[À CONFIRMER …]` (`npm run markers`). La plupart sont dans `src/data/site.ts`.
 2. Formulaire : créer une clé d'accès sur web3forms.com avec l'email de réception de Paulo,
    puis la coller dans `FORM.accessKey` (`src/data/site.ts`).
-3. Nom de domaine : remplacer `site` dans `astro.config.mjs`.
+3. Nom de domaine : mettre `site` au domaine et supprimer `base` dans `astro.config.mjs`.
 4. Sections au texte provisoire : repérables par l'attribut `data-provisoire`.

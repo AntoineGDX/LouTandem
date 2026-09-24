@@ -2,10 +2,13 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// [À CONFIRMER : nom de domaine] — remplacer l'URL ci-dessous par le domaine définitif.
+// Hébergement actuel : GitHub Pages (https://antoinegdx.github.io/LouTandem).
+// [À CONFIRMER : nom de domaine] — avec un domaine à soi, mettre `site` à ce domaine
+// et supprimer `base` (le site est alors servi à la racine).
 export default defineConfig({
-  site: 'https://lou-tandem.example',
-  trailingSlash: 'never',
+  site: 'https://antoinegdx.github.io',
+  base: '/LouTandem',
+  trailingSlash: 'ignore',
   build: { format: 'file' },
   integrations: [
     sitemap({ filter: (page) => !page.includes('/merci') }),

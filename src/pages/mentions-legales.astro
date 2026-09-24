@@ -3,7 +3,7 @@
 import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
 import Marker from '../components/Marker.astro';
-import { SITE, CONTACT } from '../data/site';
+import { SITE, CONTACT, url } from '../data/site';
 ---
 <Base title="Mentions légales" description="Mentions légales du site Lou Tandem.">
   <PageIntro eyebrow="Informations légales" title="Mentions légales" frieze={false}>
@@ -41,7 +41,7 @@ import { SITE, CONTACT } from '../data/site';
       <h2>Données personnelles</h2>
       <p>
         Le traitement des données envoyées via le formulaire de contact est décrit dans la
-        <a href="/confidentialite">politique de confidentialité</a>.
+        <a href={url('/confidentialite')}>politique de confidentialité</a>.
       </p>
     </div>
   </div>

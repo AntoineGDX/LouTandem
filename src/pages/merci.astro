@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
 import Button from '../components/Button.astro';
 import Marker from '../components/Marker.astro';
-import { SITE } from '../data/site';
+import { SITE, url } from '../data/site';
 ---
 <Base title="Demande envoyée" description="Votre demande a bien été envoyée à Lou Tandem." noindex>
   <PageIntro eyebrow="Demande envoyée" title="Merci, c'est bien reçu">
@@ -12,7 +12,7 @@ import { SITE } from '../data/site';
   </PageIntro>
   <div class="section">
     <div class="container actions">
-      <Button href="/" variant="secondary">Retour à l'accueil</Button>
+      <Button href={url('/')} variant="secondary">Retour à l'accueil</Button>
     </div>
   </div>
 </Base>

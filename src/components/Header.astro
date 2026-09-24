@@ -2,14 +2,15 @@
 // En-tête : emblème + nom, liens, bouton principal. Menu repliable sur mobile.
 import Emblem from './Emblem.astro';
 import Button from './Button.astro';
-import { NAV, CTA, SITE } from '../data/site';
+import { NAV, CTA, SITE, url } from '../data/site';
 
-const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
-const isCurrent = (href: string) => path === href;
+const clean = (p: string) => p.replace(/\.html$/, '').replace(/\/$/, '');
+const path = clean(Astro.url.pathname);
+const isCurrent = (href: string) => path === clean(href);
 ---
 <header class="site-header">
   <div class="container site-header__bar">
-    <a href="/" class="brand" aria-label={`${SITE.name}, accueil`} aria-current={isCurrent('/') ? 'page' : undefined}>
+    <a href={url('/')} class="brand" aria-label={`${SITE.name}, accueil`} aria-current={isCurrent(url('/')) ? 'page' : undefined}>
       <Emblem />
       <span class="brand__name">{SITE.name}</span>
     </a>

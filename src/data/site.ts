@@ -1,3 +1,10 @@
+// Préfixe les chemins internes avec la base du site (ex. /LouTandem sur GitHub Pages).
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+export const url = (path: string) => (path === '/' ? `${BASE}/` : `${BASE}${path}`);
+
+// Avant le lancement : pages exclues de Google (noindex). Passer à false quand le site est finalisé.
+export const PRE_LAUNCH = true;
+
 // Données du site réunies au même endroit.
 // Toute valeur marquée [À CONFIRMER …] est affichée telle quelle sur le site
 // pour rester visible ; la remplacer ici suffit à la mettre à jour partout.
@@ -33,12 +40,12 @@ export const FORM = {
   endpoint: 'https://api.web3forms.com/submit',
   accessKey: '', // [À CONFIRMER : clé d'accès Web3Forms]
   subject: 'Nouvelle demande — Travailler avec Lou Tandem',
-  thanksPath: '/merci',
+  thanksPath: url('/merci'),
 } as const;
 
 export const NAV = [
-  { href: '/livraison', label: 'Le service' },
-  { href: '/a-propos', label: 'Qui est Paulo' },
+  { href: url('/livraison'), label: 'Le service' },
+  { href: url('/a-propos'), label: 'Qui est Paulo' },
 ] as const;
 
-export const CTA = { href: '/contact', label: 'Travailler avec Lou Tandem' } as const;
+export const CTA = { href: url('/contact'), label: 'Travailler avec Lou Tandem' } as const;

@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
 import Button from '../components/Button.astro';
+import { url } from '../data/site';
 ---
 <Base title="Page introuvable" description="Cette page n'existe pas." noindex>
   <PageIntro eyebrow="Erreur 404" title="Cette page n'existe pas">
@@ -9,7 +10,7 @@ import Button from '../components/Button.astro';
   </PageIntro>
   <div class="section">
     <div class="container actions">
-      <Button href="/" variant="secondary">Retour à l'accueil</Button>
+      <Button href={url('/')} variant="secondary">Retour à l'accueil</Button>
     </div>
   </div>
 </Base>

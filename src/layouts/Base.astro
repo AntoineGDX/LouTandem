@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE } from '../data/site';
+import { SITE, PRE_LAUNCH, url } from '../data/site';
 
 interface Props {
   title: string;
@@ -22,7 +22,7 @@ const jsonLd = {
   '@type': 'LocalBusiness',
   name: SITE.name,
   description: SITE.description,
-  url: Astro.site?.href,
+  url: new URL(url('/'), Astro.site).href,
   areaServed: { '@type': 'City', name: SITE.city },
   address: { '@type': 'PostalAddress', addressLocality: SITE.city, addressCountry: 'FR' },
   openingHours: 'Tu-Sa', // horaires [À CONFIRMER PAULO] : ajouter ex. 'Tu-Sa 08:00-18:00'
@@ -37,10 +37,10 @@ const jsonLd = {
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex" />}
+    {(noindex || PRE_LAUNCH) && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#A3472A" />
-    <link rel="icon" href="/images/emblem-tomette.svg" type="image/svg+xml" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href={url('/images/emblem-tomette.svg')} type="image/svg+xml" />
+    <link rel="sitemap" href={url('/sitemap-index.xml')} />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />

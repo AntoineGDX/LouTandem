@@ -1,9 +1,10 @@
 ---
 // Frise de tomettes : une seule par page, entre le hero et la section suivante.
 // SVG 1440×30 du design system, recadré sans déformation (xMinYMid slice).
+import { url } from '../data/site';
 ---
 <div class="frise" aria-hidden="true">
-  <img src="/images/frise-tomettes.svg" alt="" width="1440" height="30" loading="eager" decoding="async" />
+  <img src={url('/images/frise-tomettes.svg')} alt="" width="1440" height="30" loading="eager" decoding="async" />
 </div>
 
 <style>

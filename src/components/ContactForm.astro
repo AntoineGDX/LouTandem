@@ -4,7 +4,7 @@
 // sans JS, envoi classique en POST (Web3Forms affiche alors sa propre page de confirmation).
 import Button from './Button.astro';
 import Marker from './Marker.astro';
-import { FORM } from '../data/site';
+import { FORM, url } from '../data/site';
 
 const types = ['Boulangerie', 'Café', 'Restaurant', 'Primeur', 'Épicerie', 'Autre'];
 ---
@@ -112,7 +112,7 @@ const types = ['Boulangerie', 'Café', 'Restaurant', 'Primeur', 'Épicerie', 'Au
 
   <p class="small muted">
     Vos informations servent uniquement à vous recontacter au sujet de votre demande.
-    Voir la <a href="/confidentialite">politique de confidentialité</a>.
+    Voir la <a href={url('/confidentialite')}>politique de confidentialité</a>.
   </p>
 
   <div class="actions">
@@ -178,7 +178,7 @@ const types = ['Boulangerie', 'Café', 'Restaurant', 'Primeur', 'Épicerie', 'Au
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok || !data.success) throw new Error(data.message || res.statusText);
-        window.location.assign(form.dataset.thanks || '/merci');
+        window.location.assign(form.dataset.thanks!);
       } catch {
         say("L'envoi n'a pas fonctionné. Vérifiez votre connexion et réessayez, ou écrivez directement sur WhatsApp.");
         submit?.removeAttribute('disabled');
