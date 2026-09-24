@@ -1,38 +1,33 @@
 ---
-// Photo principale optimisée : AVIF + WebP (JPEG en repli), largeurs 640 / 1080 / 1500.
-// Point focal 50% 32% (casque → guidon). Le bas de l'image reste hors cadre :
-// impression partielle sur un sac, marque non validée [ACCORD CLIENT ?].
+// Photo de Paulo (page « Qui est Paulo ») : AVIF + WebP (JPEG en repli), largeurs 640 / 1080 / 1500.
+// Cadre ocre, arrondi 16px, point focal 50% 32%. Cadre carré pour garder le bas de l'image
+// hors cadre : impression partielle sur un sac, marque non validée [ACCORD CLIENT ?].
 import { Picture } from 'astro:assets';
 import paulo from '../assets/images/paulo-cargo.jpg';
 ---
-<div class="hero-photo">
+<div class="photo-paulo">
   <Picture
     src={paulo}
     formats={['avif', 'webp']}
     fallbackFormat="jpg"
     widths={[640, 1080, 1500]}
-    sizes="(min-width: 900px) 50vw, 100vw"
+    sizes="(min-width: 900px) 40vw, 100vw"
     alt="Paulo sur son vélo cargo chargé de sacs de livraison, dans une rue de Nice"
-    loading="eager"
-    fetchpriority="high"
     quality={55}
   />
 </div>
 
 <style>
-  .hero-photo {
+  .photo-paulo {
     background: var(--ocre);
     border-radius: var(--r-photo);
     overflow: hidden;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 1 / 1;
   }
-  .hero-photo :global(img) {
+  .photo-paulo :global(img) {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 50% 32%;
-  }
-  @media (min-width: 900px) {
-    .hero-photo { aspect-ratio: auto; height: 380px; }
   }
 </style>

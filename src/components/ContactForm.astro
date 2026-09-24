@@ -192,7 +192,7 @@ const types = ['Boulangerie', 'Café', 'Restaurant', 'Primeur', 'Épicerie', 'Au
   .form__group { border: 0; padding: 0; margin: 0; display: grid; gap: var(--sp-4); min-width: 0; }
   .form__group > legend {
     padding: 0; margin-bottom: var(--sp-4);
-    font-family: var(--font-titre); font-weight: 600;
+    font-family: var(--font-titre); font-weight: var(--w-sub);
     font-size: var(--t-sub); line-height: var(--l-sub);
   }
 
@@ -201,11 +201,11 @@ const types = ['Boulangerie', 'Café', 'Restaurant', 'Primeur', 'Épicerie', 'Au
   @media (min-width: 640px) { .field-row { grid-template-columns: 1fr 1fr; } }
 
   .field label, .field__label {
-    font-size: var(--t-label); line-height: var(--l-label); font-weight: 600;
+    font-size: var(--t-label); line-height: var(--l-label); font-weight: var(--w-label);
     color: var(--encre);
   }
   .field__hint { font-size: var(--t-small); line-height: var(--l-small); color: var(--encre-douce); }
-  .field__error { font-size: var(--t-small); line-height: var(--l-small); font-weight: 600; color: var(--erreur); }
+  .field__error { font-size: var(--t-small); line-height: var(--l-small); font-weight: 700; color: var(--erreur); }
 
   input[type='text'], input[type='tel'], input[type='email'], select, textarea {
     width: 100%;
@@ -240,6 +240,6 @@ const types = ['Boulangerie', 'Café', 'Restaurant', 'Primeur', 'Épicerie', 'Au
 
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .form__status:empty { display: none; }
-  .form__status { font-weight: 600; color: var(--encre); }
+  .form__status { font-weight: 700; color: var(--encre); }
   .form__status.is-error { color: var(--erreur); }
 </style>

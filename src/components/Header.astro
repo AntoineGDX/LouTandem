@@ -79,8 +79,8 @@ const isCurrent = (href: string) => path === clean(href);
     color: var(--encre); text-decoration: none;
   }
   .brand__name {
-    font-family: var(--font-titre); font-style: italic; font-weight: 600;
-    font-size: 28px; line-height: 1;
+    font-family: var(--font-titre); font-weight: 800;
+    font-size: 28px; line-height: 1; letter-spacing: -0.5px;
   }
 
   .menu-toggle {
@@ -90,7 +90,7 @@ const isCurrent = (href: string) => path === clean(href);
     background: transparent;
     border: 2px solid var(--volet); border-radius: var(--r-bouton);
     color: var(--volet);
-    font: 600 var(--t-button)/var(--l-button) var(--font-texte);
+    font: var(--w-button) var(--t-button)/var(--l-button) var(--font-texte);
     cursor: pointer;
   }
   .menu-toggle__icon path {
@@ -114,7 +114,7 @@ const isCurrent = (href: string) => path === clean(href);
   .site-nav__link {
     display: flex; align-items: center;
     min-height: 44px; padding-inline: var(--sp-1);
-    color: var(--encre); font-weight: 500; text-decoration: none;
+    color: var(--encre); font-weight: 400; text-decoration: none;
   }
   .site-nav__link:hover { color: var(--volet); text-decoration: underline; }
   .site-nav__link[aria-current='page'] { color: var(--volet); text-decoration: underline; text-decoration-thickness: 2px; }

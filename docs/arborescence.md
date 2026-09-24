@@ -11,7 +11,7 @@ Les commandes quotidiennes des commerces déjà clients restent sur WhatsApp. Le
 ---
 
 ## 1. Accueil (`/`)
-1. **Hero** : Lou Tandem, livraison à vélo cargo pour les commerces de Nice. Photo `paulo-cargo.jpg`. Bouton « Travailler avec Lou Tandem » et, en second, « Écrire sur WhatsApp ». [coordonnées À CONFIRMER]
+1. **Hero** : Lou Tandem, livraison à vélo cargo pour les commerces de Nice. Illustration `illustration-cargo.png`. Bouton « Travailler avec Lou Tandem » et, en second, « Écrire sur WhatsApp ». [coordonnées À CONFIRMER]
 2. **Le principe en 3 étapes** :
    - Vous envoyez vos livraisons du lendemain sur WhatsApp.
    - Paulo récupère la marchandise chez vous.
@@ -33,7 +33,7 @@ Les commandes quotidiennes des commerces déjà clients restent sur WhatsApp. Le
 ## 3. Qui est Paulo (`/a-propos`)
 1. **Présentation de Paulo**, son parcours, son ancrage niçois. [contenu À CONFIRMER PAULO]
 2. **Le nom Lou Tandem** : son origine. [À CONFIRMER PAULO]
-3. **Photos** de Paulo et du vélo : `paulo-cargo.jpg` sert pour le hero de l'accueil ; d'autres photos restent à fournir pour cette page.
+3. **Photos** de Paulo et du vélo : `paulo-cargo.jpg`, plus d'autres photos à fournir.
 4. **Bloc final** : appel à prendre contact.
 
 ## 4. Travailler avec Lou Tandem (`/contact`)

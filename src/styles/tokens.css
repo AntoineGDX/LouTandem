@@ -15,8 +15,15 @@
   --erreur: #A1261B;         /* erreurs de formulaire */
 
   /* Typographie */
-  --font-titre: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-texte: 'Work Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-titre: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-texte: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Graisses (docs/design.md) */
+  --w-display: 800;
+  --w-heading: 800;
+  --w-sub: 700;
+  --w-label: 700;
+  --w-button: 700;
 
   /* Espacements : 4, 8, 12, 16, 24, 32, 48, 64 */
   --sp-1: 4px;
@@ -38,7 +45,7 @@
   --largeur-max: 1200px;
 
   /* Tailles de texte — mobile */
-  --t-display: 40px;   --l-display: 44px;
+  --t-display: 40px;   --l-display: 44px;   --ls-display: -1px;
   --t-heading: 26px;   --l-heading: 32px;
   --t-sub: 20px;       --l-sub: 26px;
   --t-lead: 17px;      --l-lead: 26px;
@@ -51,7 +58,7 @@
 @media (min-width: 768px) {
   :root {
     --gouttiere: var(--sp-6);
-    --t-display: 64px;   --l-display: 68px;
+    --t-display: 64px;   --l-display: 66px;   --ls-display: -1.5px;
     --t-heading: 32px;   --l-heading: 38px;
     --t-sub: 22px;       --l-sub: 28px;
     --t-lead: 19px;      --l-lead: 29px;

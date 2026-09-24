@@ -18,12 +18,12 @@ npm run markers   # liste toutes les informations [À CONFIRMER] restantes
 
 ```
 docs/                     brief, arborescence, design (sources de vérité)
-public/images/            frise-tomettes.svg, emblem-tomette.svg (servis tels quels)
-src/assets/images/        paulo-cargo.jpg (optimisée au build : AVIF/WebP 640/1080/1500)
+public/images/            emblem-tomette.svg (servi tel quel)
+src/assets/images/        illustration-cargo.png (WebP 480/952), paulo-cargo.jpg (AVIF/WebP 640/1080/1500)
 src/data/site.ts          coordonnées, zone, jours, formulaire : toutes les infos à compléter
 src/styles/tokens.css     variables CSS de docs/design.md
 src/styles/global.css     base, boutons, cartes, marqueurs
-src/components/           Header, Footer, Button, StepCard, Frieze, HeroPhoto, PhotoFrame,
+src/components/           Header, Footer, Button, StepCard, HeroIllustration, PhotoPaulo, PhotoFrame,
                           PageIntro, FinalCta, ContactForm, Marker, Emblem
 src/layouts/Base.astro    <head> SEO (canonical, Open Graph, JSON-LD LocalBusiness)
 src/pages/                /, /livraison, /a-propos, /contact, /merci,

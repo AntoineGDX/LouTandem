@@ -1,0 +1,31 @@
+---
+// Illustration du hero (accueil) : posée directement sur le fond creme, sans cadre,
+// fond, arrondi ni ombre ; toujours affichée en entier. WebP (transparence) + PNG de secours, 480 / 952.
+// [À CONFIRMER PAULO : mention « Produits locaux » visible sur la caisse]
+// [À CONFIRMER : droits d'utilisation de l'illustration]
+import { Picture } from 'astro:assets';
+import illustration from '../assets/images/illustration-cargo.png';
+---
+<div class="hero-illustration">
+  <Picture
+    src={illustration}
+    formats={['webp']}
+    fallbackFormat="png"
+    widths={[480, 952]}
+    sizes="(min-width: 900px) 441px, 100vw"
+    alt="Illustration : un livreur à vélo cargo, la caisse remplie de légumes et de baguettes, salue en disant « Salut, ça roule ? ». Sur la caisse : « Produits locaux, bonne humeur »."
+    loading="eager"
+    fetchpriority="high"
+  />
+</div>
+
+<style>
+  .hero-illustration :global(img) {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  @media (min-width: 900px) {
+    .hero-illustration :global(img) { height: 400px; }
+  }
+</style>

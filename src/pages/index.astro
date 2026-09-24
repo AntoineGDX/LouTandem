@@ -1,8 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
-import HeroPhoto from '../components/HeroPhoto.astro';
-import Frieze from '../components/Frieze.astro';
+import HeroIllustration from '../components/HeroIllustration.astro';
 import StepCard from '../components/StepCard.astro';
 import Marker from '../components/Marker.astro';
 import FinalCta from '../components/FinalCta.astro';
@@ -18,7 +17,7 @@ const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épicer
         <p class="eyebrow">Lou Tandem · Nice</p>
         <h1 id="hero-title">Livraison à vélo cargo pour les commerces de Nice</h1>
         <p class="lead">
-          Paulo récupère la marchandise chez vous et la livre à vos clients,
+          Nous récupérons la marchandise chez vous et la livrons à vos clients,
           dans Nice centre, du mardi au samedi.
         </p>
         <div class="actions">
@@ -27,11 +26,9 @@ const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épicer
         </div>
         <p class="small muted">WhatsApp : <Marker text={CONTACT.whatsappLabel} /></p>
       </div>
-      <HeroPhoto />
+      <HeroIllustration />
     </div>
   </section>
-
-  <Frieze />
 
   <!-- 2. Le principe en 3 étapes -->
   <section class="section" aria-labelledby="principe-title">
@@ -44,10 +41,10 @@ const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épicer
         <StepCard number={1} title="Vous envoyez vos livraisons">
           <p>La veille, vous envoyez à Paulo sur WhatsApp les livraisons du lendemain.</p>
         </StepCard>
-        <StepCard number={2} title="Paulo passe chez vous">
-          <p>Il récupère la marchandise directement dans votre commerce.</p>
+        <StepCard number={2} title="Nous passons chez vous">
+          <p>Nous récupérons la marchandise directement dans votre commerce.</p>
         </StepCard>
-        <StepCard number={3} title="Il livre vos clients">
+        <StepCard number={3} title="Nous livrons vos clients">
           <p>Vos clients reçoivent leur commande, livrée à vélo cargo.</p>
         </StepCard>
       </ol>
@@ -120,7 +117,7 @@ const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épicer
 </Base>
 
 <style>
-  .hero { padding-block: var(--sp-6); }
+  .hero { padding-block: var(--sp-6); border-bottom: 1px solid var(--trait); }
   .hero__grid { display: grid; gap: var(--sp-6); }
   .hero__text { display: grid; gap: var(--sp-4); align-content: center; }
   .hero__text .actions { margin-top: var(--sp-2); }
@@ -138,7 +135,7 @@ const commerces = ['Boulangeries', 'Cafés', 'Restaurants', 'Primeurs', 'Épicer
   }
   .commerce {
     padding: var(--sp-4);
-    font-family: var(--font-titre); font-weight: 600;
+    font-family: var(--font-titre); font-weight: var(--w-sub);
     font-size: var(--t-sub); line-height: var(--l-sub);
   }
 

@@ -1,9 +1,9 @@
 Dernière mise à jour : 24/09/2026
 
-# Identité visuelle — Lou Tandem (piste « Tomettes », validée)
+# Identité visuelle — Lou Tandem (piste « Tomettes », typo Baie des Anges, validée)
 
 Inspiration : tomettes niçoises (carreaux hexagonaux en terre cuite), façades ocre et volets verts du Vieux-Nice.
-Référence visuelle : maquette « Piste 1 — Tomettes » (canevas Lou Tandem) et design system « Lou Tandem ».
+Référence visuelle : maquette « Tomettes — typo Baie des Anges » (canevas Lou Tandem) et design system « Lou Tandem ».
 
 ## Couleurs (variables CSS)
 
@@ -36,21 +36,21 @@ Google Fonts :
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 ```
 
 | Style | Police | Desktop | Mobile | Graisse |
 |---|---|---|---|---|
-| display (titre hero) | Fraunces | 64/68px | 40/44px | 600 |
-| heading (titres de section) | Fraunces | 32/38px | 26/32px | 600 |
-| subheading (cartes, étapes) | Fraunces | 22/28px | 20/26px | 600 |
-| lead (chapeau hero) | Work Sans | 19/29px | 17/26px | 400 |
-| body | Work Sans | 17/26px | 16/24px | 400 |
-| body-small | Work Sans | 15/22px | 14/20px | 400 |
-| label (surtitres en capitales, espacement 1,5px ; libellés) | Work Sans | 14/18px | 13/16px | 600 |
-| button | Work Sans | 17/20px | 16/20px | 600 |
+| display (titre hero) | Bricolage Grotesque | 64/66px, espacement −1,5px | 40/44px, −1px | 800 |
+| heading (titres de section) | Bricolage Grotesque | 32/38px | 26/32px | 800 |
+| subheading (cartes, étapes) | Bricolage Grotesque | 22/28px | 20/26px | 700 |
+| lead (chapeau hero) | Atkinson Hyperlegible | 19/29px | 17/26px | 400 |
+| body | Atkinson Hyperlegible | 17/26px | 16/24px | 400 |
+| body-small | Atkinson Hyperlegible | 15/22px | 14/20px | 400 |
+| label (surtitres en capitales, espacement 1,5px ; libellés) | Atkinson Hyperlegible | 14/18px | 13/16px | 700 |
+| button | Atkinson Hyperlegible | 17/20px | 16/20px | 700 |
 
-Nom « Lou Tandem » : Fraunces italique 600, 28px dans l'en-tête.
+Nom « Lou Tandem » : Bricolage Grotesque 800, sans italique, espacement −0,5px, 28px dans l'en-tête.
 
 ## Espacements et arrondis
 
@@ -64,13 +64,13 @@ Cibles tactiles ≥ 44px (boutons du hero : 52px de haut).
    ```html
    <svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><polygon points="32,0 59.7,16 59.7,48 32,64 4.3,48 4.3,16" fill="#A3472A"/></svg>
    ```
-2. **Numéros d'étapes** : hexagone `--tomette` de 44px, chiffre en Fraunces 600 20px `--creme`, centré.
+2. **Numéros d'étapes** : hexagone `--tomette` de 44px, chiffre en Bricolage Grotesque 800 20px `--creme`, centré.
 3. **Frise** : bande pleine largeur de 30px de haut, une seule par page, entre le hero et la section suivante.
    - Hexagones pointe en haut, côté 9,5px, pavage en quinconce (décalage horizontal d'une demi-largeur une rangée sur deux, pas vertical 1,5 × côté).
    - Joints : chaque hexagone réduit de 1,2px, fond `--creme`.
    - Tons tirés avec une graine fixe, pondération : tomette ×5, tomette-rose ×3, tomette-claire ×2, tomette-foncee ×1.
    - Générer le SVG une fois au build (ou le fichier `frise-tomettes.svg` du design system, 1440×30), `aria-hidden="true"`, recadré sans déformation (`preserveAspectRatio="xMinYMid slice"`).
-4. Pas d'hexagones ailleurs (photos, cartes, boutons).
+4. Pas d'hexagones ailleurs (illustration, photos, cartes, boutons).
 
 ## Composants de base (d'après la maquette)
 
@@ -79,17 +79,23 @@ Cibles tactiles ≥ 44px (boutons du hero : 52px de haut).
 - **Bouton secondaire** : contour 2px volet, texte volet, fond transparent.
 - **Surtitre** : label en capitales, couleur volet.
 - **Carte d'étape** : fond creme, bordure 1px trait, radius 10px, padding 24px, pastille hexagonale + titre + texte.
-- **Cadre photo** : fond ocre, radius 16px ; placeholder « [Photo : …] » tant que les photos manquent.
+- **Illustration du hero** : posée directement sur creme, sans cadre ni fond (voir « Illustration et photos »).
+- **Cadre photo** (page « Qui est Paulo ») : fond ocre, radius 16px.
 - **Champs de formulaire** : bordure 1px trait-champ, radius 6px, hauteur ≥ 44px, libellé visible au-dessus, focus anneau volet.
 
-## Photos
+## Illustration et photos
 
-- **Photo principale** : `public/images/paulo-cargo.jpg` (1500×2000, portrait). Paulo sur son vélo cargo chargé de sacs kraft, rue de Nice.
-  - Hero (desktop) : cadre paysage, `object-fit: cover`, `object-position: 50% 32%` (casque → guidon), hauteur 380px, radius 16px.
-  - Hero (mobile) : cadre 4:5 sous le texte, même point focal.
+- **Image du hero (accueil)** : `public/images/illustration-cargo.png` (952×863, PNG transparent). Livreur à vélo cargo au trait rouge tomette #A3472A, caisse chargée de légumes et de baguettes.
+  - Posée directement sur le fond creme : pas de cadre, pas de fond, pas d'arrondi, pas d'ombre.
+  - Toujours affichée en entier (`object-fit: contain`), jamais recadrée. Desktop : colonne de droite du hero, hauteur 400px. Mobile : sous le texte, pleine largeur.
+  - Texte alternatif : « Illustration : un livreur à vélo cargo, la caisse remplie de légumes et de baguettes, salue en disant « Salut, ça roule ? ». Sur la caisse : « Produits locaux, bonne humeur ». »
+  - Servir en WebP (avec transparence) et PNG de secours, largeurs 480 / 952.
+  - [À CONFIRMER PAULO] la mention « Produits locaux » visible sur la caisse. [À CONFIRMER] les droits d'utilisation de l'illustration.
+- **Photo de Paulo** : `public/images/paulo-cargo.jpg` (1500×2000, portrait), pour la page « Qui est Paulo ».
+  - Cadre fond ocre, radius 16px, `object-fit: cover`, `object-position: 50% 32%`.
   - Texte alternatif : « Paulo sur son vélo cargo chargé de sacs de livraison, dans une rue de Nice ».
-  - Recadrage : garder le bas de l'image hors cadre (impression partielle sur un sac, marque non validée [ACCORD CLIENT ?]).
-  - Servir en WebP/AVIF avec largeurs 640 / 1080 / 1500.
+  - Garder le bas de l'image hors cadre (impression partielle sur un sac, marque non validée [ACCORD CLIENT ?]).
+  - Servir en WebP/AVIF, largeurs 640 / 1080 / 1500.
 
 ## Iconographie
 
@@ -99,4 +105,6 @@ Pas de jeu d'icônes défini. Si besoin : icônes au trait (1,5–2px) en encre 
 
 ## Points restants [À CONFIRMER]
 - Logo définitif (l'emblème hexagonal est provisoire)
-- Autres photos (page « Qui est Paulo », vélo seul, livraison en situation)
+- Autres photos (vélo seul, livraison en situation)
+- Mention « Produits locaux » sur l'illustration
+- Droits d'utilisation de l'illustration

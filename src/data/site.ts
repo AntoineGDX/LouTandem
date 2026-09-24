@@ -13,7 +13,7 @@ export const SITE = {
   name: 'Lou Tandem',
   tagline: 'Livraison à vélo cargo pour les commerces de Nice',
   description:
-    "Lou Tandem, c'est Paulo : il récupère la marchandise chez votre commerce et la livre à vos clients, à vélo cargo, dans Nice centre, du mardi au samedi.",
+    "Lou Tandem récupère la marchandise chez votre commerce et la livre à vos clients, à vélo cargo, dans Nice centre, du mardi au samedi.",
   city: 'Nice',
   zone: 'Nice centre',
   zoneExtension: '[À CONFIRMER PAULO : quartiers/communes acceptés, limite]',

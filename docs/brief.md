@@ -43,7 +43,7 @@ La capacité se raisonne en volume et s'évalue au cas par cas. Aucun poids ou v
 Direct, local, chaleureux, sans jargon marketing. Rédaction en français.
 
 ## Identité visuelle
-- Piste « Tomettes » validée : tomettes niçoises, façades ocre, volets verts. Couleur de marque terre cuite, titres en Fraunces, texte en Work Sans.
+- Piste « Tomettes » validée : tomettes niçoises, façades ocre, volets verts. Couleur de marque terre cuite, titres en Bricolage Grotesque, texte en Atkinson Hyperlegible. Illustration de livreur à vélo cargo en image d'accueil.
 - Détail complet (couleurs, typo, espacements, motif, composants) : docs/design.md.
 - Design system « Lou Tandem » : https://claude.ai/artifact/Xr3nm7ToYpnoH1BoWXmG92
 - Pas de logo définitif : un emblème hexagonal provisoire le remplace.

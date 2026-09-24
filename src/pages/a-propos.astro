@@ -2,15 +2,16 @@
 import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
 import PhotoFrame from '../components/PhotoFrame.astro';
+import PhotoPaulo from '../components/PhotoPaulo.astro';
 import Marker from '../components/Marker.astro';
 import FinalCta from '../components/FinalCta.astro';
 ---
 <Base
   title="Qui est Paulo"
-  description="Derrière Lou Tandem, il y a Paulo, livreur indépendant à vélo cargo à Nice. Il livre les clients des commerces de proximité, du mardi au samedi."
+  description="Derrière Lou Tandem, il y a Paulo, livreur indépendant à vélo cargo à Nice, et son frère. Ils livrent les clients des commerces de proximité, du mardi au samedi."
 >
   <PageIntro eyebrow="Qui est Paulo" title="Paulo, livreur à vélo cargo à Nice">
-    <p>Lou Tandem, c'est l'activité de Paulo, livreur indépendant à vélo cargo à Nice.</p>
+    <p>Lou Tandem, c'est l'activité de Paulo, livreur indépendant à vélo cargo à Nice. Il livre aujourd'hui avec son frère, et c'est lui votre interlocuteur.</p>
   </PageIntro>
 
   <!-- 1. Présentation de Paulo — contenu À CONFIRMER -->
@@ -21,16 +22,17 @@ import FinalCta from '../components/FinalCta.astro';
         <h2 id="paulo-title">Son histoire</h2>
         <p><Marker text="[À CONFIRMER PAULO : présentation, parcours, ancrage niçois]" /></p>
       </div>
-      <PhotoFrame label="Paulo" />
+      <PhotoPaulo />
     </div>
   </section>
 
   <!-- 2. Le nom Lou Tandem -->
-  <section class="section section--ocre" aria-labelledby="nom-title" data-provisoire>
+  <section class="section section--ocre" aria-labelledby="nom-title">
     <div class="container prose">
       <p class="eyebrow">Le nom</p>
       <h2 id="nom-title">Pourquoi « Lou Tandem » ?</h2>
-      <p><Marker text="[À CONFIRMER PAULO : origine du nom]" /></p>
+      <p>« Lou », c'est un mot niçois. Un tandem, c'est un vélo à deux.</p>
+      <p>Et Lou Tandem, c'est justement deux livreurs : Paulo et son frère.</p>
     </div>
   </section>
 

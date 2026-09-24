@@ -8,7 +8,10 @@ import { SITE } from '../data/site';
 const faq = [
   { q: 'Combien de temps faut-il pour démarrer ?', a: '[À CONFIRMER PAULO : délai pour démarrer]' },
   { q: 'Et si je dois annuler une livraison ?', a: '[À CONFIRMER PAULO : annulation]' },
-  { q: 'Comment se passe la facturation ?', a: '[À CONFIRMER PAULO : facturation]' },
+  {
+    q: 'Comment se passe la facturation ?',
+    a: 'La facturation se fait à la course. Chaque mois, vous recevez une seule facture qui regroupe toutes les livraisons du mois.',
+  },
   { q: "Que se passe-t-il en cas de pluie ?", a: '[À CONFIRMER PAULO : livraisons par temps de pluie]' },
 ];
 ---
@@ -17,7 +20,7 @@ const faq = [
   description="Lou Tandem récupère la marchandise chez votre commerce et la livre à vos clients à vélo cargo, dans Nice centre, du mardi au samedi. Organisation simple par WhatsApp, sur devis."
 >
   <PageIntro eyebrow="Le service" title="Livraison à vélo cargo pour votre commerce">
-    <p>Paulo récupère la marchandise chez vous et la livre à vos clients, dans Nice centre, du mardi au samedi.</p>
+    <p>Nous récupérons la marchandise chez vous et la livrons à vos clients, dans Nice centre, du mardi au samedi.</p>
   </PageIntro>
 
   <!-- 1. Ce que fait Lou Tandem -->
@@ -26,7 +29,7 @@ const faq = [
       <p class="eyebrow">Ce que fait Lou Tandem</p>
       <h2 id="quoi-title">De votre commerce à vos clients</h2>
       <p>
-        Paulo passe récupérer la marchandise dans votre commerce, puis la livre chez vos clients.
+        Nous passons récupérer la marchandise dans votre commerce, puis nous la livrons chez vos clients.
         Ce sont surtout des professionnels, parfois des particuliers.
         <Marker text="[À CONFIRMER PAULO : ce sont les clients particuliers d'un commerce, ou des particuliers qui commandent directement à Lou Tandem ?]" />
       </p>
@@ -52,7 +55,7 @@ const faq = [
       <p class="eyebrow">Ce qu'on peut transporter</p>
       <h2 id="transport-title">Un vélo cargo, un espace de chargement à l'avant</h2>
       <p>
-        Paulo roule sur un vélo cargo classique, avec un espace de chargement à l'avant.
+        Les livraisons se font en vélo cargo classique, avec un espace de chargement à l'avant.
         La capacité se raisonne en volume : on regarde ensemble ce que vous avez à livrer avant de démarrer.
       </p>
       <p><Marker text="[À CONFIRMER PAULO : produits frais, fragiles, contraintes]" /></p>
@@ -102,7 +105,9 @@ const faq = [
         {faq.map((item) => (
           <details class="faq__item">
             <summary><span>{item.q}</span></summary>
-            <div class="faq__answer"><Marker text={item.a} /></div>
+            <div class="faq__answer">
+              {item.a.startsWith('[') ? <Marker text={item.a} /> : <p>{item.a}</p>}
+            </div>
           </details>
         ))}
       </div>
@@ -126,7 +131,7 @@ const faq = [
     display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
     min-height: 44px;
     padding: var(--sp-4) var(--sp-5);
-    font-family: var(--font-titre); font-weight: 600;
+    font-family: var(--font-titre); font-weight: var(--w-sub);
     font-size: var(--t-sub); line-height: var(--l-sub);
     cursor: pointer;
     list-style: none;

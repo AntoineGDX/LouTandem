@@ -14,10 +14,10 @@ body {
 }
 img, svg { display: block; max-width: 100%; }
 h1, h2, h3, p, ul, ol, dl, figure { margin: 0; }
-h1, h2, h3 { font-family: var(--font-titre); font-weight: 600; color: var(--encre); }
-h1 { font-size: var(--t-display); line-height: var(--l-display); }
-h2 { font-size: var(--t-heading); line-height: var(--l-heading); }
-h3 { font-size: var(--t-sub); line-height: var(--l-sub); }
+h1, h2, h3 { font-family: var(--font-titre); color: var(--encre); }
+h1 { font-size: var(--t-display); line-height: var(--l-display); font-weight: var(--w-display); letter-spacing: var(--ls-display); }
+h2 { font-size: var(--t-heading); line-height: var(--l-heading); font-weight: var(--w-heading); }
+h3 { font-size: var(--t-sub); line-height: var(--l-sub); font-weight: var(--w-sub); }
 
 a { color: var(--volet); text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
@@ -37,7 +37,7 @@ a:hover { text-decoration-thickness: 2px; }
   position: absolute; left: var(--sp-4); top: -100px; z-index: 100;
   background: var(--volet); color: var(--sur-tomette);
   padding: var(--sp-3) var(--sp-4); border-radius: var(--r-bouton);
-  font-weight: 600; min-height: 44px; display: inline-flex; align-items: center;
+  font-weight: var(--w-label); min-height: 44px; display: inline-flex; align-items: center;
 }
 .skip-link:focus { top: var(--sp-4); }
 
@@ -59,7 +59,7 @@ a:hover { text-decoration-thickness: 2px; }
 .eyebrow {
   font-size: var(--t-label);
   line-height: var(--l-label);
-  font-weight: 600;
+  font-weight: var(--w-label);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--volet);
@@ -75,7 +75,7 @@ a:hover { text-decoration-thickness: 2px; }
 
 /* Marqueurs d'informations manquantes : visibles exprès, faciles à retrouver */
 .a-confirmer {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--encre);
   background: var(--creme);
   border: 1px dashed var(--tomette);
@@ -98,7 +98,7 @@ a:hover { text-decoration-thickness: 2px; }
   font-family: var(--font-texte);
   font-size: var(--t-button);
   line-height: var(--l-button);
-  font-weight: 600;
+  font-weight: var(--w-button);
   text-decoration: none;
   text-align: center;
   cursor: pointer;
